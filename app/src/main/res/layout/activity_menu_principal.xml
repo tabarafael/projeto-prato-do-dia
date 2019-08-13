@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuPrincipal"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/BTCardapioDia"
+            android:text="@string/BTCardapioDoDia"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTCardapioSemana"
+            android:text="@string/BTCardapioSemanal"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTPedidos"
+            android:text="@string/BTMeusPedidos"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTAltCadastro"
+            android:text="@string/BTAlterarCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
