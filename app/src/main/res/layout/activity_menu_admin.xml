@@ -11,15 +11,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View exclusiva para Admins, padrão agora para testes"/>
+        android:text="@string/TXAviso1"/>
     <Button
         android:id="@+id/BTSwitchCLIENT"
-        android:text="Cliente"
+        android:text="@string/TXClient"
         android:layout_width="match_parent"
         android:layout_height="75dp" />
     <Button
         android:id="@+id/BTSwitchADMIN"
-        android:text="Administrador"
+        android:text="@string/TXAdmin"
         android:layout_width="match_parent"
         android:layout_height="75dp" />
 </LinearLayout>
