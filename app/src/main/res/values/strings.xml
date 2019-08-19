@@ -47,4 +47,5 @@
     <string name="BTAdicionarPrato">Adicionar Pratos</string>
     <string name="TXModContaOutras">Modificar outras contas</string>
     <string name="TXModConta">Modificar conta</string>
+    <string name="TXEmailForgot">Insira o seu E-mail</string>
 </resources>

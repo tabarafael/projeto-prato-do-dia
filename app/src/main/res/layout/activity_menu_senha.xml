@@ -12,7 +12,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="15sp"
         android:text="Menu Esqueci a minha Senha em construção"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/TXEmailForgot"
+        android:textSize="22sp"/>
+    <EditText
+        android:layout_marginTop="25dp"
+        android:hint="E-mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginTop="75dp"
+        android:text="Confirmar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp" />
 
 </LinearLayout>
