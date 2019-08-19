@@ -26,6 +26,7 @@
     <string name="TXOK">OK</string>
     <string name="BTMeusPedidos">Meus Pedidos</string>
     <string name="BTAlterarCadastro">Alterar Cadastro</string>
+    <string name="BTAlterarCadastroAdmin">Alterar Cadastros</string>
     <string name="TXSair">Deseja sair do aplicativo?</string>
     <string name="TXDom">Domingo</string>
     <string name="TXSeg">Segunda-feira</string>
@@ -41,4 +42,9 @@
     <string name="TXAdmin">Administradores</string>
     <string name="TXAviso1">View exclusiva para Admins, padrão agora para testes</string>
     <string name="BTconfirmar">Confirmar</string>
+    <string name="BTRelatorioAdmin">Relatórios</string>
+    <string name="BTMeusPedidosAdmin">Pedidos em andamento</string>
+    <string name="BTAdicionarPrato">Adicionar Pratos</string>
+    <string name="TXModContaOutras">Modificar outras contas</string>
+    <string name="TXModConta">Modificar conta</string>
 </resources>

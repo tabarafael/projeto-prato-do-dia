@@ -16,6 +16,8 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     private Button BTCardapioSemana;
     private Button BTPedidos;
     private Button BTAltCadastro;
+    private Integer ValorNivelContaUsuario;
+    private Integer ValorDiaHoje = 8;
 
 
     @Override
@@ -33,13 +35,23 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         BTPedidos.setOnClickListener(this);
         BTAltCadastro.setOnClickListener(this);
 
-    }
 
+        Intent intent = getIntent();
+        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
+        if (ValorNivelConta == 0){
+            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            ValorNivelContaUsuario = ValorNivelConta;
+            Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     @Override
     public void onBackPressed() {
         AppCancela();
-    }
+    }     //Troca o botão "back" pelo "AppCancela()"
 
     private void AppCancela(){
         new AlertDialog.Builder(this)
@@ -52,7 +64,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
                 })
                 .setNegativeButton((getString(R.string.TXNao)), null)
                 .show();
-    }
+    }                  //Segurança para impedir o usuário de sair do app sem querer
 
     @Override
     public void onClick (View view){
@@ -68,23 +80,27 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         if (view == BTAltCadastro){
             AppCadastro();
         }
-    }
+    }  //Verifica botão pressionado
 
     private void AppCardapioDia(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,8);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",ValorDiaHoje);
         startActivity(intent);
-    }
+    }    //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
     private void AppCardapioSemana(){
         Intent intent = new Intent (this, PratoDaSemana.class);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
-    }
+    }   //Abre activity com dias da semana
     private void AppPedidos(){
-        Toast.makeText(this,"Em construção",Toast.LENGTH_SHORT).show();
-    }
+        Intent intent = new Intent (this, MenuPedidosAndamento.class);
+        startActivity(intent);
+    }         //Abre activity mostrando estado dos pedidos pertintentes ao usuário
     private void AppCadastro(){
-        Toast.makeText(this,"Em construção",Toast.LENGTH_SHORT).show();
-    }
+        Intent intent = new Intent(this, MenuCadastro.class);
+        startActivity(intent);
+    }       //Abre menu de cadastro para o usuário alterar seus dados
 
 
 

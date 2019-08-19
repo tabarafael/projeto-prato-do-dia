@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class PratoDaSemana extends AppCompatActivity implements View.OnClickListener{
-
-
 
     private Button BTPSDom;
     private Button BTPSSeg;
@@ -18,6 +17,7 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
     private Button BTPSQui;
     private Button BTPSSex;
     private Button BTPSSab;
+    private Integer ValorNivelContaUsuario =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,16 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         BTPSQui.setOnClickListener(this);
         BTPSSex.setOnClickListener(this);
         BTPSSab.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        Integer ValorNivelConta = intent.getIntExtra("NivelConta",0);
+        if (ValorNivelConta == 0){
+            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            ValorNivelContaUsuario = ValorNivelConta;
+            Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onClick(View view){
@@ -67,37 +77,44 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
 
     private void AppPSDom(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,1);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",1);
         startActivity(intent);
     }
     private void AppPSSeg(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,2);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",2);
         startActivity(intent);
     }
     private void AppPSTer(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,3);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",3);
         startActivity(intent);
     }
     private void AppPSQua(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,4);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",4);
         startActivity(intent);
     }
     private void AppPSQui(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,5);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",5);
         startActivity(intent);
     }
     private void AppPSSex(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,6);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",6);
         startActivity(intent);
     }
     private void AppPSSab(){
         Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra(PratoDoDia.PARAMETRO_DIA_SEMANA,7);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
+        intent.putExtra("ValorDia",7);
         startActivity(intent);
     }
 

@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuPrincipalADMIN">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/BTAdicionarPratoAdmin"
+            android:text="@string/BTAdicionarPrato"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+
+        <Button
+            android:id="@+id/BTCardapioDiaAdmin"
+            android:text="@string/BTCardapioDoDia"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTCardapioSemanaAdmin"
+            android:text="@string/BTCardapioSemanal"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTPedidosAdmin"
+            android:text="@string/BTMeusPedidosAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTAltCadastroAdmin"
+            android:text="@string/BTAlterarCadastroAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/BTRelatoriosAdmin"
+            android:text="@string/BTRelatorioAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

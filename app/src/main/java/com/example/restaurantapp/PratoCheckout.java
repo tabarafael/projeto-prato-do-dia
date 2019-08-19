@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 public class PratoCheckout extends AppCompatActivity implements View.OnClickListener {
 
-    Button BTConfirmar;
+    private Button BTConfirmar;
+    private Integer ValorNivelContaUsuario =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,14 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
 
         BTConfirmar = findViewById(R.id.BTFinalCheckout);
         BTConfirmar.setOnClickListener(this);
+
+        Intent intent = getIntent();
+
+
+
+        ValorNivelContaUsuario = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
+
+        Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
     }
 
 
@@ -33,10 +42,20 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
     }
 
     private void AppConfirmaCheckout(){
-        Toast.makeText(this, "Pedido agendado",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MenuPrincipal.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities
-        startActivity(intent);
+
+
+        if (ValorNivelContaUsuario==2){
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities
+            startActivity(intent);
+        }else if (ValorNivelContaUsuario==1){
+            Intent intent = new Intent(this, MenuPrincipalADMIN.class);
+            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities
+            startActivity(intent);
+        }
+
 
     }
 }

@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 public class PratoDoDia extends AppCompatActivity implements View.OnClickListener{
 
-    TextView TVPratoDiaHeader;
-    ImageButton BTPrato1;
+    private TextView TVPratoDiaHeader;
+    private ImageButton BTPrato1;
+    private Integer ValorNivelContaUsuario = 0;
+    private Integer ValorSemana = 0;
 
     public static final String PARAMETRO_DIA_SEMANA = "";
 
@@ -29,12 +31,24 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
 
         Intent intent = getIntent();
-        Integer ValorSemana = intent.getIntExtra(PARAMETRO_DIA_SEMANA,0);
 
-        if (ValorSemana == 0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
+
+
+        ValorNivelContaUsuario = intent.getIntExtra("NivelConta",0);
+        ValorSemana = intent.getIntExtra("ValorDia",0);
+
+        Toast.makeText(this, "nível conta"+ValorNivelContaUsuario+ValorSemana,Toast.LENGTH_SHORT).show();
+
+
+        if (ValorNivelContaUsuario == 0){
+            Toast.makeText(this,"Ocorreu um erro, Nivel Usuario",Toast.LENGTH_SHORT).show();
             finish();
-        }else{
+        }else if(ValorSemana == 0){
+            Toast.makeText(this,"Ocorreu um erro, Nivel Usuario",Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        else{
             AppDiaSemana(ValorSemana);
         }
     }
@@ -82,6 +96,7 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
     private void AppAcessoPrato(){
      Intent intent = new Intent (this, PratoDescricao.class);
+     intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
      startActivity(intent);
     }
 
