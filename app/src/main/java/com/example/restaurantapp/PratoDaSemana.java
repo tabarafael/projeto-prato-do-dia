@@ -47,7 +47,6 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
             finish();
         }else{
             ValorNivelContaUsuario = ValorNivelConta;
-            Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -73,8 +72,10 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         if(view == BTPSSab){
             AppPSSab();
         }
-    }
+    }     //Verifica o botão pressionado
 
+
+                                                            //Esta parte define qual o dia do cardápio que o usuário quer olhar, para então filtrar do servidor somente as opções relevantes.
     private void AppPSDom(){
         Intent intent = new Intent (this, PratoDoDia.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);

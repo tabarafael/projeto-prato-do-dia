@@ -22,7 +22,7 @@
     <string name="ERConf">Ocorreu um problema </string>
     <string name="BTCardapioDoDia">Cardápio do dia</string>
     <string name="BTCardapioSemanal">Cardápio semanal</string>
-    <string name="TXCadastroSuc">Sucesso na criação da conta</string>
+    <string name="TXCadastroSuc">Sucesso na criação/modificação da conta</string>
     <string name="TXOK">OK</string>
     <string name="BTMeusPedidos">Meus Pedidos</string>
     <string name="BTAlterarCadastro">Alterar Cadastro</string>

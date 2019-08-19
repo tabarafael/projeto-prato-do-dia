@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ETusuario = findViewById(R.id.ETusuario);
         ETsenha = findViewById(R.id.ETsenha);
 
-    }
-
+    }  //Set de listeners nos botões
 
     @Override
     public void onClick(View view){
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == BTrecuperarsenha){
             AppRecuperar();
         }
-    }
+    }            //Verifica o botão selecionado
 
     private void AppEntrar(){
         String usuario = ETusuario.getText().toString();
@@ -53,24 +52,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(TextUtils.isEmpty(usuario)) {
             ETusuario.setError(getString(R.string.ERUserVazio));
-            return;
         }else if (TextUtils.isEmpty(senha)){
             ETsenha.setError(getString(R.string.ERSenhaVazio));
-            return;
         }else{
             finish();
             Intent intent = new Intent(this, MenuAdmin.class);
             startActivity(intent);
         }
-    }
+    }            //Pressionando o botão entrar, verifica os espaços, mas não chega a verificar os valores
 
     private void AppCadastro(){
         Intent intent = new Intent(this, MenuCadastro.class);
         startActivity(intent);
-    }
+    }          //Redireciona para criar um cadastro, **Em construção
 
     private void AppRecuperar(){
         Intent intent = new Intent(this, MenuSenha.class);
         startActivity(intent);
-    }
+    }          //Redireciona para recuperar senha  **Em construção
 }

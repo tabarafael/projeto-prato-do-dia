@@ -19,7 +19,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
     private Button BTRelatorioAdmin;
     private Button BTAdicionarPratoAdmin;
     private Integer ValorNivelContaUsuario;
-    private Integer ValorDiaHoje = 8;
+    private Integer ValorDiaHoje = 8;  //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,6 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
             finish();
         }else{
             ValorNivelContaUsuario = ValorNivelConta;
-            Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
         }
     }       //set listeners nos botões
 
@@ -104,7 +103,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorDia",ValorDiaHoje);
         startActivity(intent);
-    }    //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
+    }                   //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
     private void AppCadastros(){
         Intent intent = new Intent(this, MenuCadastroADMIN.class);
         startActivity(intent);
@@ -113,7 +112,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent (this, PratoDaSemana.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
-    }   //Abre activity com dias da semana
+    }               //Abre activity com dias da semana
     private void AppAdicionarPrato(){
         Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
         startActivity(intent);

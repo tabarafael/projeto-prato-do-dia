@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuAdmin extends AppCompatActivity implements View.OnClickListener  {
+public class MenuAdmin extends AppCompatActivity implements View.OnClickListener {
 
 
     private Button BTSwitchADMIN;
@@ -22,25 +22,31 @@ public class MenuAdmin extends AppCompatActivity implements View.OnClickListener
         BTSwitchCLIENT = findViewById(R.id.BTSwitchCLIENT);
         BTSwitchADMIN.setOnClickListener(this);
         BTSwitchCLIENT.setOnClickListener(this);
-    }
+    }    //A partir deste ponto, o usuário recebe um "nível de conta", 1 para Admin e 2 para clientes, isso afeta o acesso a certos aspectos e menus
 
 
     @Override
-    public void onClick(View view){
-        if (view == BTSwitchADMIN){
-            finish();
-            Intent intent = new Intent(this, MenuPrincipalADMIN.class);
-            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,1);
-            startActivity(intent);
-
+    public void onClick(View view) {
+        if (view == BTSwitchADMIN) {
+            AppDirecionaAdmin();
         }
-        if (view == BTSwitchCLIENT){
-            finish();
-            Intent intent = new Intent(this, MenuPrincipal.class);
-            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,2);
-            startActivity(intent);
+        if (view == BTSwitchCLIENT) {
+            AppDirecionaClient();
         }
+    }         //Verifica o botão pressionado e redireciona de acordo;
 
-    }
+    private void AppDirecionaAdmin () {
+        finish();
+        Intent intent = new Intent(this, MenuPrincipalADMIN.class);
+        intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA, 1);
+        startActivity(intent);
+    }     //Direciona o usuário para o lado admin do app
+
+    private void AppDirecionaClient () {
+        finish();
+        Intent intent = new Intent(this, MenuPrincipal.class);
+        intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA, 2);
+        startActivity(intent);
+    }    //Direciona o usuário para o lado cliente do app
 
 }

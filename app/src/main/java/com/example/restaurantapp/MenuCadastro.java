@@ -72,7 +72,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
 
         String NewUsuario = ETNewUsuario.getText().toString();
         String Nome = ETNome.getText().toString();
-        String NewEmail = ETnewEmail.getText().toString();
+        String NewEmail = ETnewEmail.getText().toString();                 //Recebe os dados inseridos no App
         String ConfEmail = ETConfEmail.getText().toString();
         String NewSenha = ETNewSenha.getText().toString();
         String ConfSenha = ETConfSenha.getText().toString();
@@ -83,7 +83,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             ETNome.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(NewEmail)) {
             ETnewEmail.setError(getString(R.string.ERVazio));
-        } else if(TextUtils.isEmpty(ConfEmail)) {
+        } else if(TextUtils.isEmpty(ConfEmail)) {                      //Verifica se estão vazios e cria um erro caso sim.
             ETConfEmail.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(NewSenha)) {
             ETNewSenha.setError(getString(R.string.ERVazio));
@@ -91,9 +91,9 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             ETConfSenha.setError(getString(R.string.ERVazio));
         } else {
             if(!NewEmail.equals(ConfEmail)){
-                new AlertDialog.Builder(this).setMessage(getString(R.string.EREmailDif)).show();
+                new AlertDialog.Builder(this).setMessage(getString(R.string.EREmailDif)).show();   //Verifica se os dois E-mails são iguais
             }else if (!NewSenha.equals(ConfSenha)){
-                new AlertDialog.Builder(this).setMessage(getString(R.string.ERSenhaDif)).show();
+                new AlertDialog.Builder(this).setMessage(getString(R.string.ERSenhaDif)).show();    //Verifica se as duas senhas são iguais
             }else {
                 new AlertDialog.Builder(this)
                         .setMessage(getString(R.string.TXCadastroSuc))
@@ -104,7 +104,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
                             }
                         })
                         .show();
-            }
+            }                                                                                    // Mostra mensagem de sucesso no cadastro, mas não existe cadastro real ainda.
 
         }
 

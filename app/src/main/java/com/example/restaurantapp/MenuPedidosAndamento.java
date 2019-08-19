@@ -10,5 +10,5 @@ public class MenuPedidosAndamento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pedidos_andamento);
-    }
+    }                                                                               //Em construção, precisa do servidor funcionando primeiro.
 }

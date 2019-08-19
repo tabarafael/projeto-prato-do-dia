@@ -5,11 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuSenha">
+    tools:context=".MenuSenha"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MenuEsqueci a minha Senha"/>
+        android:textSize="22sp"
+        android:text="Menu Esqueci a minha Senha em construção"/>
 
 </LinearLayout>

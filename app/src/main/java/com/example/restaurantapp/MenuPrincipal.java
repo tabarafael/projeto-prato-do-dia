@@ -17,7 +17,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     private Button BTPedidos;
     private Button BTAltCadastro;
     private Integer ValorNivelContaUsuario;
-    private Integer ValorDiaHoje = 8;
+    private Integer ValorDiaHoje = 8;   //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
 
     @Override
@@ -43,7 +43,6 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
             finish();
         }else{
             ValorNivelContaUsuario = ValorNivelConta;
-            Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -101,7 +100,4 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, MenuCadastro.class);
         startActivity(intent);
     }       //Abre menu de cadastro para o usuário alterar seus dados
-
-
-
 }

@@ -18,7 +18,6 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
     private Integer ValorNivelContaUsuario = 0;
     private Integer ValorSemana = 0;
 
-    public static final String PARAMETRO_DIA_SEMANA = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +30,15 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
 
         Intent intent = getIntent();
-
-
-
         ValorNivelContaUsuario = intent.getIntExtra("NivelConta",0);
         ValorSemana = intent.getIntExtra("ValorDia",0);
-
-        Toast.makeText(this, "nível conta"+ValorNivelContaUsuario+ValorSemana,Toast.LENGTH_SHORT).show();
-
-
         if (ValorNivelContaUsuario == 0){
             Toast.makeText(this,"Ocorreu um erro, Nivel Usuario",Toast.LENGTH_SHORT).show();
             finish();
         }else if(ValorSemana == 0){
-            Toast.makeText(this,"Ocorreu um erro, Nivel Usuario",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Ocorreu um erro, Valor Semana",Toast.LENGTH_SHORT).show();
             finish();
         }
-
         else{
             AppDiaSemana(ValorSemana);
         }
@@ -60,7 +51,8 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
             AppAcessoPrato();
         }
 
-    }
+    }      //Verifica o botão pressionado, atualmente só um funciona, pois é somente temporário
+
     private void AppDiaSemana(Integer ValorSemana){
 
         switch (ValorSemana){
@@ -90,14 +82,13 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
                 break;
             default:
                 Toast.makeText(this,"default",Toast.LENGTH_SHORT).show();
-        }
-
+        }     //Verifica "de onde o usuário vem", 1-7 é o mennu semanal, 8 é "dia atual". Atualmente apenas modifica o header, mas deve filtrar os pratos disponíveis nofuturo
     }
 
     private void AppAcessoPrato(){
      Intent intent = new Intent (this, PratoDescricao.class);
      intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
      startActivity(intent);
-    }
+    }       //Acessa o prato selecionado na lista disponível
 
 }

@@ -10,5 +10,5 @@ public class MenuSenha extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_senha);
-    }
+    }                                                                   //Activity para futuramente ficar a recuperação de senha, em construção
 }

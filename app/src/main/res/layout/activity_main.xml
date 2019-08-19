@@ -22,8 +22,12 @@
             android:textSize="50sp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="30dp"
-            />
+            android:layout_marginLeft="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="qualquer usuário e senha funcionam"/>
     </LinearLayout>
 
     <LinearLayout
@@ -31,8 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/TVusuario"
@@ -40,7 +43,8 @@
             android:layout_height="wrap_content"
             android:text="@string/TVUsuario"
             android:textSize="35sp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"/>
 
         <EditText
             android:id="@+id/ETusuario"
@@ -65,7 +69,6 @@
             android:inputType="textPassword"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"/>
-
 
     </LinearLayout>
 
@@ -98,7 +101,6 @@
             android:text="@string/BTRecuperarSenha"
             android:textSize="15sp"
             android:layout_marginTop="30dp"/>
-
 
 </LinearLayout>
 

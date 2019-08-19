@@ -19,17 +19,18 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prato_descricao);
 
-        Intent intent = getIntent();
-
-
-
-        ValorNivelContaUsuario = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
-
-        Toast.makeText(this, "nível conta"+ValorNivelContaUsuario,Toast.LENGTH_SHORT).show();
-
-
         BTCheckout = findViewById(R.id.BTPratoCheckout);
         BTCheckout.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
+        if (ValorNivelConta==0){
+            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            ValorNivelContaUsuario = ValorNivelConta;
+        }
+
     }
 
 
@@ -38,11 +39,11 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         if (view == BTCheckout){
          AppCheckout();
         }
-    }
+    }    //verifica o botão pressioando
 
     private void AppCheckout(){
         Intent intent = new Intent(this, PratoCheckout.class);
         intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
         startActivity(intent);
-    }
+    }         //Direciona o usuário para o checkout final
 }
