@@ -23,7 +23,6 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
     private EditText ETNewSenha;
     private EditText ETConfSenha;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +38,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
         ETNewUsuario = findViewById(R.id.ETNewUsuario);
         ETNome = findViewById(R.id.ETNome);
         ETnewEmail = findViewById(R.id.ETNewEmail);
-    }
-
-
-
-
-
+    }  //Listeners dos botões
 
     @Override
     public void onClick(View view){
@@ -55,11 +49,11 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             AppConfirma();
         }
 
-    }
+    }           //Olha qual botão foi pressionado
     @Override
     public void onBackPressed() {
         AppCancela();
-    }
+    }       //Desvia o botão "back" para o AppCancela()
 
     private void AppCancela(){
         new AlertDialog.Builder(this)
@@ -72,7 +66,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
                 })
                 .setNegativeButton((getString(R.string.TXNao)), null)
                 .show();
-    }
+    }     //aviso para garantir que o usuário não saia acidentalemnte
 
     private void AppConfirma(){
 
@@ -110,10 +104,9 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
                             }
                         })
                         .show();
-
             }
 
         }
 
-    }
+    }     //Verifica os espaços e valida o usuário, ainda não funciona
 }

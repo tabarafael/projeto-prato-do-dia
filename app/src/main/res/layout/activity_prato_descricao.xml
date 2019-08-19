@@ -43,6 +43,7 @@
             </LinearLayout>
         </ScrollView>
         <Button
+            android:id="@+id/BTPratoCheckout"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:textSize="22sp"

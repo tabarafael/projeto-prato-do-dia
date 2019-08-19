@@ -40,4 +40,5 @@
     <string name="TXClient">Clientes</string>
     <string name="TXAdmin">Administradores</string>
     <string name="TXAviso1">View exclusiva para Admins, padrão agora para testes</string>
+    <string name="BTconfirmar">Confirmar</string>
 </resources>
