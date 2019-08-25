@@ -23,11 +23,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="30dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="qualquer usuário e senha funcionam"/>
     </LinearLayout>
 
     <LinearLayout

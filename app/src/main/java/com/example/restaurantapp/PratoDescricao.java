@@ -12,7 +12,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
 
 
     private Button BTCheckout;
-    private Integer ValorNivelContaUsuario=0;
+    private Boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +23,9 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         BTCheckout.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
-        if (ValorNivelConta==0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
-            finish();
-        }else{
-            ValorNivelContaUsuario = ValorNivelConta;
-        }
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
+        ValorNivelContaUsuario = ValorNivelConta;
+
 
     }
 
@@ -43,7 +39,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
 
     private void AppCheckout(){
         Intent intent = new Intent(this, PratoCheckout.class);
-        intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
     }         //Direciona o usuário para o checkout final
 }

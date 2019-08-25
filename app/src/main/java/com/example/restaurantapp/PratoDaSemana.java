@@ -17,7 +17,7 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
     private Button BTPSQui;
     private Button BTPSSex;
     private Button BTPSSab;
-    private Integer ValorNivelContaUsuario =0;
+    private Boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,9 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         BTPSSab.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Integer ValorNivelConta = intent.getIntExtra("NivelConta",0);
-        if (ValorNivelConta == 0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
-            finish();
-        }else{
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
             ValorNivelContaUsuario = ValorNivelConta;
-        }
+
     }
 
     public void onClick(View view){

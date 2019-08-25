@@ -7,10 +7,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class MenuCadastro extends AppCompatActivity implements View.OnClickListener{
 
@@ -85,7 +90,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             ETnewEmail.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(ConfEmail)) {                      //Verifica se estão vazios e cria um erro caso sim.
             ETConfEmail.setError(getString(R.string.ERVazio));
-        } else if(TextUtils.isEmpty(NewSenha)) {
+        } else if(TextUtils.isEmpty(NewSenha) || (NewSenha.length()<8)) {
             ETNewSenha.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(ConfSenha)) {
             ETConfSenha.setError(getString(R.string.ERVazio));
@@ -95,16 +100,34 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             }else if (!NewSenha.equals(ConfSenha)){
                 new AlertDialog.Builder(this).setMessage(getString(R.string.ERSenhaDif)).show();    //Verifica se as duas senhas são iguais
             }else {
-                new AlertDialog.Builder(this)
-                        .setMessage(getString(R.string.TXCadastroSuc))
-                        .setCancelable(false)
-                        .setPositiveButton((getString(R.string.TXOK)), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                finish();
-                            }
-                        })
-                        .show();
-            }                                                                                    // Mostra mensagem de sucesso no cadastro, mas não existe cadastro real ainda.
+                ParseUser user = new ParseUser();
+                user.setUsername(NewUsuario);
+                user.setEmail(NewEmail);
+                user.setPassword(NewSenha);
+                user.put("Name",Nome);
+                user.put("NivelAdmin",false);
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            new AlertDialog.Builder(MenuCadastro.this)
+                                    .setMessage(getString(R.string.TXCadastroSuc))
+                                    .setCancelable(false)
+                                    .setPositiveButton((getString(R.string.TXOK)), new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            finish();
+                                            ParseUser.logOut();
+                                        }
+                                    })
+                                    .show();
+                        } else {
+                            ParseUser.logOut();
+                            Toast.makeText(MenuCadastro.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+            }
 
         }
 

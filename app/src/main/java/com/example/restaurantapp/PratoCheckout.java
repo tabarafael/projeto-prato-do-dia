@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class PratoCheckout extends AppCompatActivity implements View.OnClickListener {
 
     private Button BTConfirmar;
-    private Integer ValorNivelContaUsuario =0;
+    private Boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,9 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
 
 
         Intent intent = getIntent();
-        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
-        if (ValorNivelConta==0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
-            finish();
-        }else{
-            ValorNivelContaUsuario = ValorNivelConta;
-        }
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
+        ValorNivelContaUsuario = ValorNivelConta;
+
     }
 
 
@@ -46,13 +42,13 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
     private void AppConfirmaCheckout(){
 
 
-        if (ValorNivelContaUsuario==2){
+        if (!ValorNivelContaUsuario){
             Toast.makeText(this,"Sucesso na criação do pedido",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MenuPrincipal.class);
             intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities antes de voltar para limpar um pouco a memória
             startActivity(intent);
-        }else if (ValorNivelContaUsuario==1){
+        }else{
             Toast.makeText(this,"Sucesso na criação do pedido",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MenuPrincipalADMIN.class);
             intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);

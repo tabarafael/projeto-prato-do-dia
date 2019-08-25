@@ -10,13 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 public class MenuPrincipal extends AppCompatActivity implements View.OnClickListener {
 
     private Button BTCardapioDia;
     private Button BTCardapioSemana;
     private Button BTPedidos;
     private Button BTAltCadastro;
-    private Integer ValorNivelContaUsuario;
+    private Boolean ValorNivelContaUsuario;
     private Integer ValorDiaHoje = 8;   //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
 
@@ -37,13 +39,9 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
 
         Intent intent = getIntent();
-        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
-        if (ValorNivelConta == 0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
-            finish();
-        }else{
-            ValorNivelContaUsuario = ValorNivelConta;
-        }
+        Boolean ValorNivelConta = intent.getBooleanExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,false);
+        ValorNivelContaUsuario = ValorNivelConta;
+
 
     }
 
@@ -58,6 +56,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
                 .setCancelable(false)
                 .setPositiveButton((getString(R.string.TXSim)), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        ParseUser.logOut();
                         MenuPrincipal.super.onBackPressed();
                     }
                 })

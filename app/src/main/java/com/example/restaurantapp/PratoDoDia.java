@@ -15,7 +15,7 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
     private TextView TVPratoDiaHeader;
     private ImageButton BTPrato1;
-    private Integer ValorNivelContaUsuario = 0;
+    private Boolean ValorNivelContaUsuario;
     private Integer ValorSemana = 0;
 
 
@@ -30,12 +30,11 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
 
         Intent intent = getIntent();
-        ValorNivelContaUsuario = intent.getIntExtra("NivelConta",0);
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
+        ValorNivelContaUsuario = ValorNivelConta;
         ValorSemana = intent.getIntExtra("ValorDia",0);
-        if (ValorNivelContaUsuario == 0){
-            Toast.makeText(this,"Ocorreu um erro, Nivel Usuario",Toast.LENGTH_SHORT).show();
-            finish();
-        }else if(ValorSemana == 0){
+
+        if(ValorSemana == 0){
             Toast.makeText(this,"Ocorreu um erro, Valor Semana",Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -87,7 +86,7 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
 
     private void AppAcessoPrato(){
      Intent intent = new Intent (this, PratoDescricao.class);
-     intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,ValorNivelContaUsuario);
+     intent.putExtra("NivelConta",ValorNivelContaUsuario);
      startActivity(intent);
     }       //Acessa o prato selecionado na lista disponível
 

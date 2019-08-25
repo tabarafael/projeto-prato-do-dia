@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClickListener{
 
     private Button BTCardapioDiaAdmin;
@@ -18,7 +20,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
     private Button BTAltCadastroAdmin;
     private Button BTRelatorioAdmin;
     private Button BTAdicionarPratoAdmin;
-    private Integer ValorNivelContaUsuario;
+    private Boolean ValorNivelContaUsuario;
     private Integer ValorDiaHoje = 8;  //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
     @Override
@@ -41,13 +43,8 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         BTAdicionarPratoAdmin.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Integer ValorNivelConta = intent.getIntExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,0);
-        if (ValorNivelConta == 0){
-            Toast.makeText(this,"Ocorreu um erro",Toast.LENGTH_SHORT).show();
-            finish();
-        }else{
-            ValorNivelContaUsuario = ValorNivelConta;
-        }
+        Boolean ValorNivelConta = intent.getBooleanExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,false);
+        ValorNivelContaUsuario = ValorNivelConta;
     }       //set listeners nos botões
 
     @Override
@@ -61,6 +58,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
                 .setCancelable(false)
                 .setPositiveButton((getString(R.string.TXSim)), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        ParseUser.logOut();
                         MenuPrincipalADMIN.super.onBackPressed();
                     }
                 })
