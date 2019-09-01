@@ -22,11 +22,21 @@
         android:text="@string/TXEmailForgot"
         android:textSize="22sp"/>
     <EditText
+        android:id="@+id/ETRecuperaUsuario"
+        android:layout_marginTop="25dp"
+        android:hint="Usuário"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/ETRecuperaEmail"
         android:layout_marginTop="25dp"
         android:hint="E-mail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:singleLine="true" />
     <Button
+        android:id="@+id/BTRecuperarConfirma"
         android:layout_marginTop="75dp"
         android:text="Confirmar"
         android:layout_width="match_parent"
