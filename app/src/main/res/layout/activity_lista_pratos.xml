@@ -4,31 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PratoDoDia"
-    android:orientation="vertical"
-    android:layout_margin="16dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-        <TextView
-            android:id="@+id/TVPratoDiaHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Header"
-            android:textSize="30sp"/>
-    </LinearLayout>
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="9">
         <ListView
-            android:id="@android:id/list"
+            android:id="@+id/LW_Pratos"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
 
     </LinearLayout>
-
-
 </LinearLayout>

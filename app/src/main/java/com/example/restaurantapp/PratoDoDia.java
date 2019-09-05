@@ -2,31 +2,44 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.app.ListActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PratoDoDia extends AppCompatActivity implements View.OnClickListener{
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class PratoDoDia extends ListActivity implements View.OnClickListener{
 
     private TextView TVPratoDiaHeader;
-    private ImageButton BTPrato1;
     private Boolean ValorNivelContaUsuario;
     private Integer ValorSemana = 0;
+    private ListView listview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prato_do_dia);
-
         TVPratoDiaHeader = findViewById(R.id.TVPratoDiaHeader);
-        BTPrato1 = findViewById(R.id.BTPrato1);
-        BTPrato1.setOnClickListener(this);
+
+        Integer hoje = 1;
+        AppGetPratosInBackGround(hoje);
 
 
         Intent intent = getIntent();
@@ -41,14 +54,54 @@ public class PratoDoDia extends AppCompatActivity implements View.OnClickListene
         else{
             AppDiaSemana(ValorSemana);
         }
+
+
+
+
+
+
+
+
+
+    }
+
+    @Override
+    protected void onListItemClick(ListView listview, View view, int position, long id){
+        String item = (String) getListAdapter().getItem(position);
+        Toast.makeText(this,item +"selected", Toast.LENGTH_LONG).show();
+    }
+
+    private void AppGetPratosInBackGround(Integer hoje){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
+        final ArrayList<Object> listaPratos = new ArrayList<Object>();
+        query.whereEqualTo("PratoDia", hoje);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objectsList, ParseException e) {
+                if (e==null){
+                     String[] listaNomePratos = new String[objectsList.size()];
+                    for (int i =0; i < objectsList.size();i++){
+                        listaNomePratos[i] = objectsList.get(i).getString("PratoNome");
+                    }
+
+                    Toast.makeText(PratoDoDia.this, ""+ listaNomePratos[0]+""+listaNomePratos[1],Toast.LENGTH_LONG).show();
+                    final ListView listview = (ListView) findViewById(R.id.LW_Pratos);
+                    MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(PratoDoDia.this,listaNomePratos);
+                    setListAdapter(adapter);
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
     @Override
 
     public void onClick (View view){
-        if (view==BTPrato1){
-            AppAcessoPrato();
-        }
+
 
     }      //Verifica o botão pressionado, atualmente só um funciona, pois é somente temporário
 
