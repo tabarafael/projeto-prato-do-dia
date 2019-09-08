@@ -16,7 +16,7 @@
     <string name="TXCancelar">Deseja cancelar?</string>
     <string name="TXSim">Sim</string>
     <string name="TXNao">Não</string>
-    <string name="ERVazio">Dado obrigatório</string>
+    <string name="ERVazio">Campo vazio</string>
     <string name="ERSenhaDif">A confirmação de senha é diferente. Favor, insira novamente.</string>
     <string name="EREmailDif">A confirmação de E-mail é diferente. Favor, insira novamente.</string>
     <string name="ERConf">Ocorreu um problema </string>
@@ -48,6 +48,19 @@
     <string name="TXModContaOutras">Modificar outras contas</string>
     <string name="TXModConta">Modificar conta</string>
     <string name="TXEmailForgot">Insira o seu usuário e E-mail</string>
+    <string name="TXLoading">Carregando...</string>
+    <string name="TXDescricao">Descrição: %1$s</string>
+    <string name="TXIngredientes">Ingredientes: %1$s</string>
+    <string name="TXPreco">Preço: R$ %1$.2f</string>
+
+    <string name="TXPreco2"> R$ %1$.2f</string>
+    <string name="TXObservacao">Observações:</string>
+    <string name="TXHint">Adicione neste espaço modificações ao prato, como retirar ingredientes.</string>
+
+
+
+
+
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">LbKeHSa7KwUxQ5pq9x5zvi2zjxUNmlESxSbQbdhp</string>

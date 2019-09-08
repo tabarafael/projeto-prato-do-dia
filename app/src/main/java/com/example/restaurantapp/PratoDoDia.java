@@ -24,12 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PratoDoDia extends ListActivity implements View.OnClickListener{
+public class PratoDoDia extends ListActivity {
 
     private TextView TVPratoDiaHeader;
     private Boolean ValorNivelContaUsuario;
     private Integer ValorSemana = 0;
-    private ListView listview;
 
 
     @Override
@@ -56,19 +55,16 @@ public class PratoDoDia extends ListActivity implements View.OnClickListener{
         }
 
 
-
-
-
-
-
-
-
     }
 
     @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
         String item = (String) getListAdapter().getItem(position);
-        Toast.makeText(this,item +"selected", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(PratoDoDia.this, PratoDescricao.class);
+        intent.putExtra("NivelConta", ValorNivelContaUsuario);
+        intent.putExtra("PratoSelecionado",item);
+        startActivity(intent);
+
     }
 
     private void AppGetPratosInBackGround(Integer hoje){
@@ -84,8 +80,6 @@ public class PratoDoDia extends ListActivity implements View.OnClickListener{
                     for (int i =0; i < objectsList.size();i++){
                         listaNomePratos[i] = objectsList.get(i).getString("PratoNome");
                     }
-
-                    Toast.makeText(PratoDoDia.this, ""+ listaNomePratos[0]+""+listaNomePratos[1],Toast.LENGTH_LONG).show();
                     final ListView listview = (ListView) findViewById(R.id.LW_Pratos);
                     MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(PratoDoDia.this,listaNomePratos);
                     setListAdapter(adapter);
@@ -97,13 +91,6 @@ public class PratoDoDia extends ListActivity implements View.OnClickListener{
         });
 
     }
-
-    @Override
-
-    public void onClick (View view){
-
-
-    }      //Verifica o botão pressionado, atualmente só um funciona, pois é somente temporário
 
     private void AppDiaSemana(Integer ValorSemana){
 
@@ -137,10 +124,5 @@ public class PratoDoDia extends ListActivity implements View.OnClickListener{
         }     //Verifica "de onde o usuário vem", 1-7 é o mennu semanal, 8 é "dia atual". Atualmente apenas modifica o header, mas deve filtrar os pratos disponíveis nofuturo
     }
 
-    private void AppAcessoPrato(){
-     Intent intent = new Intent (this, PratoDescricao.class);
-     intent.putExtra("NivelConta",ValorNivelContaUsuario);
-     startActivity(intent);
-    }       //Acessa o prato selecionado na lista disponível
 
 }

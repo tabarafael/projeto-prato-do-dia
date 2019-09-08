@@ -8,12 +8,16 @@
     <ImageView
         android:id="@+id/IV_RowImage"
         android:layout_width="match_parent"
-        android:layout_height="300px"/>
+        android:layout_height="300px"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/imagem_carregando"/>
+
     <TextView
         android:textSize="25sp"
         android:id="@+id/TV_RowLabel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Macarrão"/>
+        android:text="@string/TXLoading"/>
 
 </LinearLayout>

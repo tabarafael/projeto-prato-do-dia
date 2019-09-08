@@ -8,7 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 
 
@@ -16,6 +18,7 @@ import com.parse.GetCallback;
 import com.parse.LogInCallback;
 
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.Parse;
@@ -49,6 +52,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ETsenha = findViewById(R.id.ETsenha);
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        ETsenha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                boolean handled = false;
+                if(i == EditorInfo.IME_ACTION_DONE){
+                    if(!AppVerificaVazio()){
+                        AppEntrar();
+                        handled = true;
+                    }
+                }
+                return handled;
+            }
+        });
     }  //Set de listeners nos botões
 
     @Override
@@ -145,4 +162,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }          //Redireciona o usuário para o menu apropriado ao seu nível,
+
+    private boolean AppVerificaVazio(){
+        boolean status = false;
+        String usuario = ETusuario.getText().toString();
+
+        if(TextUtils.isEmpty(usuario)){
+            status = true;
+
+            return status;
+        }
+        return status;
+    }
 }
