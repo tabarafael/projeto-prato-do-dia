@@ -21,7 +21,6 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     private Boolean ValorNivelContaUsuario;
     private Integer ValorDiaHoje = 8;   //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +38,8 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,false);
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
         ValorNivelContaUsuario = ValorNivelConta;
-
-
     }
 
     @Override
@@ -86,15 +83,18 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         intent.putExtra("ValorDia",ValorDiaHoje);
         startActivity(intent);
     }    //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
+
     private void AppCardapioSemana(){
         Intent intent = new Intent (this, PratoDaSemana.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
     }   //Abre activity com dias da semana
+
     private void AppPedidos(){
         Intent intent = new Intent (this, MenuPedidosAndamento.class);
         startActivity(intent);
     }         //Abre activity mostrando estado dos pedidos pertintentes ao usuário
+
     private void AppCadastro(){
         Intent intent = new Intent(this, MenuCadastro.class);
         startActivity(intent);

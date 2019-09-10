@@ -43,7 +43,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         BTAdicionarPratoAdmin.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,false);
+        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
         ValorNivelContaUsuario = ValorNivelConta;
     }       //set listeners nos botões
 
@@ -69,21 +69,15 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
     public void onClick(View view){
         if (view == BTCardapioDiaAdmin){
             AppCardapioDia();
-        }
-        if (view == BTCardapioSemanaAdmin){
+        }else if (view == BTCardapioSemanaAdmin){
             AppCardapioSemana();
-        }
-        if (view == BTAltCadastroAdmin){
+        }else if (view == BTAltCadastroAdmin){
             AppCadastros();
-        }
-        if (view == BTPedidosAdmin){
+        }else if (view == BTPedidosAdmin){
             AppPedidosAndamento();
-
-        }
-        if (view == BTRelatorioAdmin){
+        }else if (view == BTRelatorioAdmin){
             AppRelatorio();
-        }
-        if (view == BTAdicionarPratoAdmin){
+        }else if (view == BTAdicionarPratoAdmin){
             AppAdicionarPrato();
         }
     }                  //Verifica botão pressionado
@@ -92,27 +86,34 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(this, MenuRelatorioADMIN.class);
         startActivity(intent);
     }                   //Leva para activity relatório, exclusiva Admin
+
     private void AppPedidosAndamento(){
         Intent intent = new Intent(this, MenuPedidosAndamento.class);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
     }           //Leva pagina de pedidos em andamento, filtra de acordo com usuário **em andamento**
+
     private void AppCardapioDia(){
         Intent intent = new Intent (this, PratoDoDia.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorDia",ValorDiaHoje);
         startActivity(intent);
     }                   //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
+
     private void AppCadastros(){
         Intent intent = new Intent(this, MenuCadastroADMIN.class);
         startActivity(intent);
     }                 //Espaço para modificar contas, admin e outras
+
     private void AppCardapioSemana(){
         Intent intent = new Intent (this, PratoDaSemana.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         startActivity(intent);
     }               //Abre activity com dias da semana
+
     private void AppAdicionarPrato(){
         Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
         startActivity(intent);
     }            //Activity para adicionar pratos aos menus
+
 }

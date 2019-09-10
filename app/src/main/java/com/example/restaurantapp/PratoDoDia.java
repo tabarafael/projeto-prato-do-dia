@@ -6,12 +6,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.app.ListActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +16,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,14 +34,19 @@ public class PratoDoDia extends ListActivity {
         setContentView(R.layout.activity_prato_do_dia);
         TVPratoDiaHeader = findViewById(R.id.TVPratoDiaHeader);
 
-        Integer hoje = 1;
-        AppGetPratosInBackGround(hoje);
 
 
         Intent intent = getIntent();
         Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
         ValorNivelContaUsuario = ValorNivelConta;
         ValorSemana = intent.getIntExtra("ValorDia",0);
+        if (ValorSemana==8){
+            Calendar calendar = Calendar.getInstance();
+            int date = calendar.get(Calendar.DAY_OF_WEEK);
+            ValorSemana = date;
+        }
+        AppGetPratosInBackGround(ValorSemana);
+
 
         if(ValorSemana == 0){
             Toast.makeText(this,"Ocorreu um erro, Valor Semana",Toast.LENGTH_SHORT).show();
@@ -80,8 +82,7 @@ public class PratoDoDia extends ListActivity {
                     for (int i =0; i < objectsList.size();i++){
                         listaNomePratos[i] = objectsList.get(i).getString("PratoNome");
                     }
-                    final ListView listview = (ListView) findViewById(R.id.LW_Pratos);
-                    MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(PratoDoDia.this,listaNomePratos);
+                    ArrayAdapterCardapio adapter = new ArrayAdapterCardapio(PratoDoDia.this,listaNomePratos);
                     setListAdapter(adapter);
 
                 }else {

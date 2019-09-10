@@ -35,6 +35,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
     private Boolean valorNivelContaUsuario;
     private String valorPratoSelecionado;
     private Double valorPrecoTotal;
+    private Double valorQuantidade;
     private ImageView IVImagemCheckout;
     private TextView TVtotalCheckout;
     private EditText ETQuantidadeCheckout;
@@ -93,6 +94,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
                 if(i == EditorInfo.IME_ACTION_NEXT){
                     if (TextUtils.isEmpty(ETQuantidadeCheckout.getText())) {
                         Toast.makeText(PratoCheckout.this,getText(R.string.ERVazio),Toast.LENGTH_SHORT).show();
+                        TVtotalCheckout.setText("");
                     }else{
                         Double quantidade = Double.parseDouble(ETQuantidadeCheckout.getText().toString());
                         if(quantidade!=null||quantidade!=0){
@@ -108,10 +110,24 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
             }
         });
 
-
+        ETQuantidadeCheckout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!ETQuantidadeCheckout.hasFocus()){
+                    if (TextUtils.isEmpty(ETQuantidadeCheckout.getText())) {
+                        Toast.makeText(PratoCheckout.this,getText(R.string.ERVazio),Toast.LENGTH_SHORT).show();
+                        TVtotalCheckout.setText("");
+                    }else{
+                        Double quantidade = Double.parseDouble(ETQuantidadeCheckout.getText().toString());
+                        if(quantidade!=null||quantidade!=0){
+                            valorPrecoTotal = (valorPrecoPrato * quantidade);
+                            TVtotalCheckout.setText(getString(R.string.TXPreco2,valorPrecoTotal));
+                            }
+                    }
+                }
+            }
+        });
     }
-
-
 
     @Override
     public void onClick(View view){
@@ -126,6 +142,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
         if (valorPrecoTotal==null||valorPrecoTotal==0){
             Toast.makeText(PratoCheckout.this,"Insira uma quantidade",Toast.LENGTH_SHORT).show();
         }else{
+            valorQuantidade = Double.parseDouble(ETQuantidadeCheckout.getText().toString());
             valorObservacao = ETCheckoutObservacao.getText().toString();
             ParseObject upload = ParseObject.create("Pedidos");
             upload.put("pedidosPratoNome",valorPratoSelecionado);
@@ -134,6 +151,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
             upload.put("pedidosValor",valorPrecoTotal);
             upload.put("pedidosSituacao",valorSituacao);
             upload.put("pedidoObservacao", valorObservacao);
+            upload.put("pedidosQuantidade",valorQuantidade);
             upload.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
@@ -153,13 +171,13 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
         if (!valorNivelContaUsuario){
             Toast.makeText(this,"Sucesso na criação do pedido",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MenuPrincipal.class);
-            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA,valorNivelContaUsuario);
+            intent.putExtra("NivelConta",valorNivelContaUsuario);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities antes de voltar para limpar um pouco a memória
             startActivity(intent);
         }else {
             Toast.makeText(this, "Sucesso na criação do pedido", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MenuPrincipalADMIN.class);
-            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA, valorNivelContaUsuario);
+            intent.putExtra("NivelConta", valorNivelContaUsuario);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                      //Limpa o stack de activities
             startActivity(intent);
         }

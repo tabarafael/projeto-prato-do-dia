@@ -48,71 +48,26 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
 
     public void onClick(View view){
         if(view == BTPSDom){
-            AppPSDom();
-        }
-        if(view == BTPSSeg){
-            AppPSSeg();
-        }
-        if(view == BTPSTer){
-            AppPSTer();
-        }
-        if(view == BTPSQua){
-            AppPSQua();
-        }
-        if(view == BTPSQui){
-            AppPSQui();
-        }
-        if(view == BTPSSex){
-            AppPSSex();
-        }
-        if(view == BTPSSab){
-            AppPSSab();
+            AppAbrePratoDoDia(1);
+        } else if(view == BTPSSeg){
+            AppAbrePratoDoDia(2);
+        } else if(view == BTPSTer){
+            AppAbrePratoDoDia(3);
+        } else if(view == BTPSQua){
+            AppAbrePratoDoDia(4);
+        } else if(view == BTPSQui){
+            AppAbrePratoDoDia(5);
+        } else if(view == BTPSSex){
+            AppAbrePratoDoDia(6);
+        } else if(view == BTPSSab){
+            AppAbrePratoDoDia(7);
         }
     }     //Verifica o botão pressionado
 
-
-                                                            //Esta parte define qual o dia do cardápio que o usuário quer olhar, para então filtrar do servidor somente as opções relevantes.
-    private void AppPSDom(){
+    private void AppAbrePratoDoDia (Integer valorDia){
         Intent intent = new Intent (this, PratoDoDia.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",1);
+        intent.putExtra("ValorDia",valorDia);
         startActivity(intent);
-    }
-    private void AppPSSeg(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",2);
-        startActivity(intent);
-    }
-    private void AppPSTer(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",3);
-        startActivity(intent);
-    }
-    private void AppPSQua(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",4);
-        startActivity(intent);
-    }
-    private void AppPSQui(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",5);
-        startActivity(intent);
-    }
-    private void AppPSSex(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",6);
-        startActivity(intent);
-    }
-    private void AppPSSab(){
-        Intent intent = new Intent (this, PratoDoDia.class);
-        intent.putExtra("NivelConta",ValorNivelContaUsuario);
-        intent.putExtra("ValorDia",7);
-        startActivity(intent);
-    }
-
+    }  //Esta parte define qual o dia do cardápio que o usuário quer olhar, para então filtrar do servidor somente as opções relevantes.
 }

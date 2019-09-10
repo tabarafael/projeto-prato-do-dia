@@ -6,7 +6,7 @@
     android:layout_margin="16dp">
 
     <ImageView
-        android:id="@+id/IV_RowImage"
+        android:id="@+id/IV_RowImage_cardapio"
         android:layout_width="match_parent"
         android:layout_height="300px"
         android:scaleType="centerCrop"
@@ -15,7 +15,7 @@
 
     <TextView
         android:textSize="25sp"
-        android:id="@+id/TV_RowLabel"
+        android:id="@+id/TV_RowLabel_cardapio"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/TXLoading"/>

@@ -52,13 +52,11 @@
     <string name="TXDescricao">Descrição: %1$s</string>
     <string name="TXIngredientes">Ingredientes: %1$s</string>
     <string name="TXPreco">Preço: R$ %1$.2f</string>
-
     <string name="TXPreco2"> R$ %1$.2f</string>
     <string name="TXObservacao">Observações:</string>
+    <string name="TXNomePrato">Prato: %1$s</string>
+    <string name="TXQuantidade">Quantidade: %1$d</string>
     <string name="TXHint">Adicione neste espaço modificações ao prato, como retirar ingredientes.</string>
-
-
-
 
 
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>

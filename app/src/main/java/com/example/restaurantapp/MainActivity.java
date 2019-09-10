@@ -3,7 +3,6 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
@@ -35,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button BTrecuperarsenha;
     private EditText ETusuario;
     private EditText ETsenha;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,11 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view){
         if (view == BTentrar){
             AppEntrar();
-        }
-        if (view == BTcadastro){
+        }else if (view == BTcadastro){
             AppCadastro();
-        }
-        if(view == BTrecuperarsenha){
+        }else if(view == BTrecuperarsenha){
             AppRecuperar();
         }
     }            //Verifica o botão selecionado
@@ -141,12 +136,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Boolean NivelAdmin = object.getBoolean("NivelAdmin");
                         if (NivelAdmin == true){
                             Intent intent = new Intent(MainActivity.this, MenuPrincipalADMIN.class);
-                            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA, NivelAdmin);
+                            intent.putExtra("NivelConta", NivelAdmin);
                             finish();
                             startActivity(intent);
                         }else{
                             Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
-                            intent.putExtra(MenuAdmin.PARAMETRO_NIVEL_CONTA, NivelAdmin);
+                            intent.putExtra("NivelConta", NivelAdmin);
                             finish();
                             startActivity(intent);
                         }
