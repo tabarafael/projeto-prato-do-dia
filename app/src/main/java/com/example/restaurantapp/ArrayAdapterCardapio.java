@@ -48,18 +48,21 @@ public class ArrayAdapterCardapio extends ArrayAdapter<String> {
             @Override
             public void done(ParseObject object, ParseException e) {
                 if (e==null){
-                    ParseFile imagem = (ParseFile) object.get("PratoImagem");
-                    imagem.getDataInBackground(new GetDataCallback() {
-                        @Override
-                        public void done(byte[] data, ParseException e) {
-                            if (e==null){
-                                Bitmap bmp = BitmapFactory.decodeByteArray(data,0,data.length);
-                                imageview.setImageBitmap(bmp);
+                    try{
+
+                        ParseFile imagem = (ParseFile) object.get("PratoImagem");
+                        imagem.getDataInBackground(new GetDataCallback() {
+                            @Override
+                            public void done(byte[] data, ParseException e) {
+                                if (e==null){
+                                    Bitmap bmp = BitmapFactory.decodeByteArray(data,0,data.length);
+                                    imageview.setImageBitmap(bmp);
+                                }
                             }
-                        }
-                    });
-
-
+                        });
+                    }catch (Exception f){
+                        Toast.makeText(context,f.getMessage(),Toast.LENGTH_LONG).show();
+                    }
                 }
 
             }

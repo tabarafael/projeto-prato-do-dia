@@ -113,6 +113,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
 
     private void AppAdicionarPrato(){
         Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
+        intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
     }            //Activity para adicionar pratos aos menus
 
