@@ -50,6 +50,8 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
     private Uri UriImagem;
     private String NomeImagem;
     private ParseFile parseFileImagem;
+    private int diaOriginal=0;
+    private ParseObject originalObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +129,8 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
 
                         ParseFile imagem = (ParseFile) object.get("PratoImagem");
                         parseFileImagem = imagem;
+                        originalObject = object;
+                        diaOriginal = valorDia;
                         NomeImagem = imagem.getName();
                         imagem.getDataInBackground(new GetDataCallback() {
                             @Override
@@ -303,7 +307,12 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
         if(valorNome.isEmpty()||valorIngredientes.isEmpty()||valorDescricao.isEmpty()||valorPreco==null||valorPreco<=0||!hasImage(IVPreview)){
             Toast.makeText(this,"Verifique os campos",Toast.LENGTH_LONG).show();
         }else{
-            ParseObject upload = ParseObject.create("Pratos");
+            ParseObject upload;
+            if (diaOriginal==dia){
+                upload = originalObject;
+            }else{
+                upload = ParseObject.create("Pratos");
+            }
             try {
                 String fileName;
                 if(UriImagem!=null){
@@ -339,7 +348,7 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
                 @Override
                 public void done(ParseException e) {
                     if (e==null){
-                        Toast.makeText(EditarEditorPratosADMIN.this,"funfou",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditarEditorPratosADMIN.this,"Salvo com sucesso!",Toast.LENGTH_SHORT).show();
 
                     }else{
                         Toast.makeText(EditarEditorPratosADMIN.this,e.getMessage(),Toast.LENGTH_SHORT).show();

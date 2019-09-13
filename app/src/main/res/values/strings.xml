@@ -60,7 +60,7 @@
     <string name="BT_Add_Prato">Adicionar Pratos</string>
     <string name="BT_Edit_Prato">Editar Pratos</string>
     <string name="BT_Remover_Prato">Remover Pratos</string>
-    <string name="TXValorDia">Dia da semana: %1$d</string>
+    <string name="TXValorDia">Dia da semana: %1$s</string>
     <string name="TXValorPreco">R$: %1$.2f</string>
 
 

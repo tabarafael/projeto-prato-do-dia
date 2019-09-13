@@ -42,9 +42,30 @@ public class ArrayAdapterEditorPratos extends ArrayAdapter<String> {
                     String valorNome = object.getString("PratoNome");
                     Integer valorDia = object.getInt("PratoDia");
                     Double valorPreco = object.getDouble("PratoPreco");
-
+                    switch (valorDia){
+                        case 1:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXDom)));
+                            break;
+                        case 2:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXSeg)));
+                            break;
+                        case 3:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXTer)));
+                            break;
+                        case 4:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXQua)));
+                            break;
+                        case 5:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXQui)));
+                            break;
+                        case 6:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXSex)));
+                            break;
+                        case 7:
+                            textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,context.getResources().getString(R.string.TXSab)));
+                            break;
+                    }
                     textViewNome.setText(context.getResources().getString(R.string.TXNomePrato,valorNome));
-                    textViewQuantidade.setText(context.getResources().getString(R.string.TXValorDia,valorDia));
                     textViewDescricao.setText(context.getResources().getString(R.string.TXValorPreco,valorPreco));
                 }
 
