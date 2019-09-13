@@ -33,6 +33,15 @@ public class EditarModificarPratosADMIN extends ListActivity {
     }
 
     @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+    @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
         String item = (String) getListAdapter().getItem(position);
         Intent intent = new Intent(EditarModificarPratosADMIN.this, EditarEditorPratosADMIN.class);

@@ -308,7 +308,7 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
             Toast.makeText(this,"Verifique os campos",Toast.LENGTH_LONG).show();
         }else{
             ParseObject upload;
-            if (diaOriginal==dia){
+            if (diaOriginal==dia||ContaDias()==1){
                 upload = originalObject;
             }else{
                 upload = ParseObject.create("Pratos");
@@ -378,5 +378,31 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
             }
         }
         return result;
+    }
+
+    private int ContaDias(){
+        int totalDias = 0;
+        if(CB1.isChecked()){
+            totalDias++;
+        }
+        if(CB2.isChecked()){
+            totalDias++;
+        }
+        if(CB3.isChecked()){
+            totalDias++;
+        }
+        if(CB4.isChecked()){
+            totalDias++;
+        }
+        if(CB5.isChecked()){
+            totalDias++;
+        }
+        if(CB6.isChecked()){
+            totalDias++;
+        }
+        if(CB7.isChecked()){
+            totalDias++;
+        }
+        return totalDias;
     }
 }

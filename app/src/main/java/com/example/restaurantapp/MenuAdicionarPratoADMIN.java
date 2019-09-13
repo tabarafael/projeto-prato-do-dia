@@ -257,7 +257,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
                 @Override
                 public void done(ParseException e) {
                     if (e==null){
-                        Toast.makeText(MenuAdicionarPratoADMIN.this,"funfou",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MenuAdicionarPratoADMIN.this,"Salvo com sucesso!",Toast.LENGTH_SHORT).show();
 
                     }else{
                         Toast.makeText(MenuAdicionarPratoADMIN.this,e.getMessage(),Toast.LENGTH_SHORT).show();
