@@ -13,10 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PedidoDescricao"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PedidoEspera"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".EditarEditorPratosADMIN"></activity>
+        <activity android:name=".EditarRemoverPratosADMIN" />
+        <activity android:name=".EditarModificarPratosADMIN" />
+        <activity android:name=".MenuEditarPratosADMIN" />
+        <activity
+            android:name=".PedidoDescricao"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PedidoEspera"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MenuCadastroADMIN"
             android:screenOrientation="portrait" />

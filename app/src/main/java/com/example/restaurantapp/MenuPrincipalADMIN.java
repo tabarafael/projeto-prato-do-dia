@@ -112,7 +112,7 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
     }               //Abre activity com dias da semana
 
     private void AppAdicionarPrato(){
-        Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
+        Intent intent = new Intent(this, MenuEditarPratosADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
     }            //Activity para adicionar pratos aos menus

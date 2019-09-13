@@ -14,7 +14,7 @@
 
         <Button
             android:id="@+id/BTAdicionarPratoAdmin"
-            android:text="@string/BTAdicionarPrato"
+            android:text="@string/BT_Edit_Prato"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
 

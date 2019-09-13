@@ -57,6 +57,11 @@
     <string name="TXNomePrato">Prato: %1$s</string>
     <string name="TXQuantidade">Quantidade: %1$d</string>
     <string name="TXHint">Adicione neste espaço modificações ao prato, como retirar ingredientes.</string>
+    <string name="BT_Add_Prato">Adicionar Pratos</string>
+    <string name="BT_Edit_Prato">Editar Pratos</string>
+    <string name="BT_Remover_Prato">Remover Pratos</string>
+    <string name="TXValorDia">Dia da semana: %1$d</string>
+    <string name="TXValorPreco">R$: %1$.2f</string>
 
 
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
