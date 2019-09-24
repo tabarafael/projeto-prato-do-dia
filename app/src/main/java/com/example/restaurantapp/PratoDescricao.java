@@ -43,7 +43,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         textoDescricao = findViewById(R.id.TV_Texto_Descricao);
         precoDescricao = findViewById(R.id.TV_Texto_Preco);
         ingredienteDescricao = findViewById(R.id.TV_Ingrediente_Descricao);
-        BTCheckout = findViewById(R.id.BTPratoCheckout);
+        BTCheckout = findViewById(R.id.BT_Prato_Checkout);
         BTCheckout.setOnClickListener(this);
 
         Intent intent = getIntent();
@@ -53,7 +53,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         valorPratoSelecionado = pratoSelecionado;
         valorNivelContaUsuario = valorNivelConta;
 
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", pratoSelecionado);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
@@ -72,7 +72,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
                     String conteudoHeaderDescricao = (String) object.get("PratoNome");
                     String conteudoTextoDescricao = (String) object.get("PratoDescricao");
                     String conteudoIngredienteDescricao = (String) object.get("PratoIngrediente");
-                    Double conteudoPrecoDescricao = (Double) object.getDouble("PratoPreco");
+                    double conteudoPrecoDescricao = object.getDouble("PratoPreco");
                     valorPratoPreco = conteudoPrecoDescricao;
                     headerDescricao.setText(conteudoHeaderDescricao);
                     textoDescricao.setText(getString(R.string.TXDescricao,conteudoTextoDescricao));

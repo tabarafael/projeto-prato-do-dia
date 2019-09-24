@@ -1,13 +1,9 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -15,18 +11,14 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
-import com.parse.GetDataCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EditarRemoverPratosADMIN extends ListActivity {
 
-    private boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +26,14 @@ public class EditarRemoverPratosADMIN extends ListActivity {
         setContentView(R.layout.activity_editar_remover_pratos_admin);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        boolean ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
         AppGetListaPratos();
     }
 
     @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
         String item = (String) getListAdapter().getItem(position);
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("objectId", item);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

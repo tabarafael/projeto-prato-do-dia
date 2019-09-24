@@ -1,6 +1,5 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -8,13 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class EditarModificarPratosADMIN extends ListActivity {
@@ -27,8 +23,7 @@ public class EditarModificarPratosADMIN extends ListActivity {
         setContentView(R.layout.activity_editar_modificar_pratos_admin);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
         AppGetListaPratos();
     }
 
@@ -53,7 +48,6 @@ public class EditarModificarPratosADMIN extends ListActivity {
 
     private void AppGetListaPratos(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
-        final ArrayList<Object> listaPedidos = new ArrayList<Object>();
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objectsList, ParseException e) {

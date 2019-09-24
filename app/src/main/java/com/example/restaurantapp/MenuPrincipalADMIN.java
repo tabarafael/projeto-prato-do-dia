@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -28,12 +27,12 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_menu_principal_admin);
-        BTCardapioDiaAdmin = findViewById(R.id.BTCardapioDiaAdmin);
-        BTCardapioSemanaAdmin = findViewById(R.id.BTCardapioSemanaAdmin);
-        BTPedidosAdmin = findViewById(R.id.BTPedidosAdmin);
-        BTAltCadastroAdmin = findViewById(R.id.BTAltCadastroAdmin);
-        BTRelatorioAdmin = findViewById(R.id.BTRelatoriosAdmin);
-        BTAdicionarPratoAdmin = findViewById(R.id.BTAdicionarPratoAdmin);
+        BTCardapioDiaAdmin = findViewById(R.id.BT_Cardapio_Dia_Admin);
+        BTCardapioSemanaAdmin = findViewById(R.id.BT_Cardapio_Semana_Admin);
+        BTPedidosAdmin = findViewById(R.id.BT_Pedidos_Admin);
+        BTAltCadastroAdmin = findViewById(R.id.BT_Alt_Cadastro_Admin);
+        BTRelatorioAdmin = findViewById(R.id.BT_Relatorios_Admin);
+        BTAdicionarPratoAdmin = findViewById(R.id.BT_Adicionar_Prato_Admin);
 
         BTCardapioDiaAdmin.setOnClickListener(this);
         BTCardapioSemanaAdmin.setOnClickListener(this);
@@ -43,9 +42,8 @@ public class MenuPrincipalADMIN extends AppCompatActivity implements View.OnClic
         BTAdicionarPratoAdmin.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
-    }       //set listeners nos botões
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
+            }       //set listeners nos botões
 
     @Override
     public void onBackPressed() {

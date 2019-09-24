@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PratoCheckout"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Checkout"
+            android:text="@string/TXCheckout"
             android:textSize="35sp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,15 +43,12 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="2dp"
                     android:textSize="22sp"
-                    android:text="Quantidade:"/>
+                    android:text="@string/TVQuantidade"/>
                 <EditText
                     android:id="@+id/ET_Quantidade_pedido"
                     android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:inputType="number"/>
-
-
-
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +58,7 @@
                     android:id="@+id/TV_Valor_Total_Checkout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Valor total:  "
+                    android:text="@string/TVValorTotal"
                     android:textSize="22sp"/>
 
                 <TextView
@@ -68,13 +66,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="22sp"/>
-
-
-
             </LinearLayout>
-
         </LinearLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,16 +85,12 @@
                 android:lines="5"
                 android:maxLines="5"
                 android:hint="@string/TXHint"/>
-
         </LinearLayout>
-
-
         <Button
-            android:id="@+id/BTFinalCheckout"
+            android:id="@+id/BT_Final_Checkout"
             android:textSize="22sp"
             android:text="@string/BTconfirmar"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
-
     </LinearLayout>
 </LinearLayout>

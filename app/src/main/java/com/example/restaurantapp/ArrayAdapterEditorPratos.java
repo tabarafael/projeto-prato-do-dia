@@ -33,14 +33,14 @@ public class ArrayAdapterEditorPratos extends ArrayAdapter<String> {
         final TextView textViewDescricao = (TextView) rowView.findViewById(R.id.TV_Descricao_Pedidos);
 
 
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("objectId", values[position]);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
                 if (e==null){
                     String valorNome = object.getString("PratoNome");
-                    Integer valorDia = object.getInt("PratoDia");
+                    int valorDia = object.getInt("PratoDia");
                     Double valorPreco = object.getDouble("PratoPreco");
                     switch (valorDia){
                         case 1:

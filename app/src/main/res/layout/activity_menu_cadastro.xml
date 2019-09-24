@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuCadastro"
     android:orientation="vertical"
     android:padding="16dp">
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro"
+            android:text="@string/TXCadastro"
             android:textSize="35sp"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,17 +28,17 @@
             android:text="@string/TVUsuario"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETNewUsuario"
+            android:id="@+id/ET_New_Usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome"
+            android:text="@string/TVNome"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETNome"
+            android:id="@+id/ET_Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"/>
@@ -52,7 +48,7 @@
             android:text="@string/TVEmail"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETNewEmail"
+            android:id="@+id/ET_New_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"/>
@@ -62,7 +58,7 @@
             android:text="@string/TVConfEmail"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETConfEmail"
+            android:id="@+id/ET_Conf_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"/>
@@ -72,7 +68,7 @@
             android:text="@string/TVSenha"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETNewSenha"
+            android:id="@+id/ET_New_Senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -83,13 +79,11 @@
             android:text="@string/TVConfSenha"
             android:textSize="22sp"/>
         <EditText
-            android:id="@+id/ETConfSenha"
+            android:id="@+id/ET_Conf_Senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:singleLine="true"/>
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -97,22 +91,17 @@
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp">
-
         <Button
-            android:id="@+id/BTCancela"
+            android:id="@+id/BT_Cancela"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="@string/TVCancelar"
-            android:paddingRight="1dp"
             android:textSize="20sp"/>
         <Button
-            android:id="@+id/BTConfirma"
+            android:id="@+id/BT_Confirma"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="@string/TVConcluir"
-            android:paddingLeft="15dp"
             android:textSize="20sp"/>
-
-
     </LinearLayout>
 </LinearLayout>

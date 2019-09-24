@@ -1,20 +1,16 @@
 package com.example.restaurantapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
@@ -42,7 +38,7 @@ public class ArrayAdapterCardapio extends ArrayAdapter<String> {
         TextView textView = (TextView) rowView.findViewById(R.id.TV_RowLabel_cardapio);
         final ImageView imageview = (ImageView)  rowView.findViewById(R.id.IV_RowImage_cardapio);
 
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", values[position]);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
@@ -64,12 +60,8 @@ public class ArrayAdapterCardapio extends ArrayAdapter<String> {
                         Toast.makeText(context,f.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }
-
             }
         });
-
-
-
         textView.setText(values[position]);
         return rowView;
     }

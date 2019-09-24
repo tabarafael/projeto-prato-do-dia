@@ -1,52 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuPrincipalADMIN"
-    android:layout_margin="16dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    android:layout_margin="16dp"
+    android:orientation="vertical">
 
         <Button
-            android:id="@+id/BTAdicionarPratoAdmin"
-            android:text="@string/BT_Edit_Prato"
+            android:id="@+id/BT_Adicionar_Prato_Admin"
+            android:text="@string/BTEdit_Prato"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
-
         <Button
-            android:id="@+id/BTCardapioDiaAdmin"
+            android:id="@+id/BT_Cardapio_Dia_Admin"
             android:text="@string/BTCardapioDoDia"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTCardapioSemanaAdmin"
+            android:id="@+id/BT_Cardapio_Semana_Admin"
             android:text="@string/BTCardapioSemanal"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPedidosAdmin"
+            android:id="@+id/BT_Pedidos_Admin"
             android:text="@string/BTMeusPedidosAdmin"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTAltCadastroAdmin"
+            android:id="@+id/BT_Alt_Cadastro_Admin"
             android:text="@string/BTAlterarCadastroAdmin"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTRelatoriosAdmin"
+            android:id="@+id/BT_Relatorios_Admin"
             android:text="@string/BTRelatorioAdmin"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
-
-
     </LinearLayout>
-
-
-
-</LinearLayout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,35 +9,21 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="Menu Esqueci a minha Senha em construção"/>
-
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/TXEmailForgot"
         android:textSize="22sp"/>
     <EditText
-        android:id="@+id/ETRecuperaUsuario"
+        android:id="@+id/ET_Recupera_Email"
         android:layout_marginTop="25dp"
-        android:hint="Usuário"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true" />
-    <EditText
-        android:id="@+id/ETRecuperaEmail"
-        android:layout_marginTop="25dp"
-        android:hint="E-mail"
+        android:hint="@string/TVEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true" />
     <Button
-        android:id="@+id/BTRecuperarConfirma"
+        android:id="@+id/BT_Recuperar_Confirma"
         android:layout_marginTop="75dp"
-        android:text="Confirmar"
+        android:text="@string/BTconfirmar"
         android:layout_width="match_parent"
         android:layout_height="75dp" />
 

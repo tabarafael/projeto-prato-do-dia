@@ -1,7 +1,5 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +7,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 
@@ -32,19 +26,17 @@ public class PratoDoDia extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prato_do_dia);
-        TVPratoDiaHeader = findViewById(R.id.TVPratoDiaHeader);
+        TVPratoDiaHeader = findViewById(R.id.TV_Prato_Dia_Header);
 
 
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta", false);
         ValorSemana = intent.getIntExtra("ValorDia",0);
         if (ValorSemana==8){
             Calendar calendar = Calendar.getInstance();
-            int date = calendar.get(Calendar.DAY_OF_WEEK);
-            ValorSemana = date;
-        }
+            ValorSemana = calendar.get(Calendar.DAY_OF_WEEK);
+            }
         AppGetPratosInBackGround(ValorSemana);
 
 
@@ -72,7 +64,6 @@ public class PratoDoDia extends ListActivity {
     private void AppGetPratosInBackGround(Integer hoje){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
-        final ArrayList<Object> listaPratos = new ArrayList<Object>();
         query.whereEqualTo("PratoDia", hoje);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override

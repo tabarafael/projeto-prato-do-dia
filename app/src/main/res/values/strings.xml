@@ -47,8 +47,8 @@
     <string name="BTAdicionarPrato">Adicionar Pratos</string>
     <string name="TXModContaOutras">Modificar outras contas</string>
     <string name="TXModConta">Modificar conta</string>
-    <string name="TXEmailForgot">Insira o seu usuário e E-mail</string>
-    <string name="TXLoading">Carregando...</string>
+    <string name="TXEmailForgot">Insira o seu E-mail</string>
+    <string name="TXLoading">Carregando</string>
     <string name="TXDescricao">Descrição: %1$s</string>
     <string name="TXIngredientes">Ingredientes: %1$s</string>
     <string name="TXPreco">Preço: R$ %1$.2f</string>
@@ -57,11 +57,32 @@
     <string name="TXNomePrato">Prato: %1$s</string>
     <string name="TXQuantidade">Quantidade: %1$d</string>
     <string name="TXHint">Adicione neste espaço modificações ao prato, como retirar ingredientes.</string>
-    <string name="BT_Add_Prato">Adicionar Pratos</string>
-    <string name="BT_Edit_Prato">Editar Pratos</string>
-    <string name="BT_Remover_Prato">Remover Pratos</string>
+    <string name="BTAdd_Prato">Adicionar Pratos</string>
+    <string name="BTEdit_Prato">Editar Pratos</string>
+    <string name="BTRemover_Prato">Remover Pratos</string>
     <string name="TXValorDia">Dia da semana: %1$s</string>
     <string name="TXValorPreco">R$: %1$.2f</string>
+    <string name="BTIniciar">Iniciar</string>
+    <string name="BTPronto">Pronto</string>
+    <string name="TXVerificarCampo">Verifique os campos</string>
+    <string name="TXCabecalho">Cabeçalho</string>
+    <string name="TXCheckout">Checkout</string>
+    <string name="TVQuantidade">Quantidade :</string>
+    <string name="TVValorTotal">Valor Total:</string>
+    <string name="TXPratoSemana">Pratos da Semana</string>
+    <string name="BTPedido">Pedido</string>
+    <string name="TXCadastro">Cadastro</string>
+    <string name="TVNome">Nome</string>
+    <string name="TXSelecionarImagem">Selecionar Imagem</string>
+    <string name="TXDescricao1">Descrição: </string>
+    <string name="TXPreco1">Preço: </string>
+    <string name="TXIngredientes1">Ingredientes: </string>
+    <string name="TXNomePrato1">Prato: </string>
+    <string name="TXPedidoCancelado">Pedidos Cancelados</string>
+    <string name="TXPedidoAndamento">Pedidos em Andamento</string>
+    <string name="TXPedidoEspera">Pedidos em Espera</string>
+    <string name="TXPedidoConcluido">Pedidos Concluídos</string>
+    
 
 
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>

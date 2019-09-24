@@ -31,9 +31,8 @@ public class MenuPedidosAndamento extends AppCompatActivity implements View.OnCl
         BTCancelado.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
-        }
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
+                }
     @Override
     public void onClick(View view){
         if (view == BTEspera){

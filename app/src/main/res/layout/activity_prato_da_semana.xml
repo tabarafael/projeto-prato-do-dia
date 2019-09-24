@@ -12,54 +12,47 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="16dp">
-
         <TextView
             android:id="@+id/TVPratoSemanaHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pratos da Semana"
-            android:textSize="22sp"/>
+            android:text="@string/TXPratoSemana"
+            android:textSize="25sp"
+            android:paddingBottom="15dp"/>
         <Button
-            android:id="@+id/BTPSDom"
+            android:id="@+id/BT_PS_Dom"
             android:text="@string/TXDom"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSSeg"
+            android:id="@+id/BT_PS_Seg"
             android:text="@string/TXSeg"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSTer"
+            android:id="@+id/BT_PS_Ter"
             android:text="@string/TXTer"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSQua"
+            android:id="@+id/BT_PS_Qua"
             android:text="@string/TXQua"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSQui"
+            android:id="@+id/BT_PS_Qui"
             android:text="@string/TXQui"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSSex"
+            android:id="@+id/BT_PS_Sex"
             android:text="@string/TXSex"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
         <Button
-            android:id="@+id/BTPSSab"
+            android:id="@+id/BT_PS_Sab"
             android:text="@string/TXSab"
             android:layout_width="match_parent"
             android:layout_height="75dp" />
-
-
-
     </LinearLayout>
-
-
-
-
 </LinearLayout>

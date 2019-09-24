@@ -18,14 +18,12 @@ public class MenuCadastroADMIN extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_cadastro_admin);
 
-        BTModificaContaAdmin = findViewById(R.id.BTModificarContaAdmin);
-        BTModificaContaOutros = findViewById(R.id.BTModificarClientes);
+        BTModificaContaAdmin = findViewById(R.id.BT_Modificar_Conta_Admin);
+        BTModificaContaOutros = findViewById(R.id.BT_Modificar_Clientes);
 
         BTModificaContaOutros.setOnClickListener(this);
         BTModificaContaAdmin.setOnClickListener(this);
     }
-
-
 
     public void onClick(View view){
         if (view == BTModificaContaAdmin) {
@@ -36,10 +34,12 @@ public class MenuCadastroADMIN extends AppCompatActivity implements View.OnClick
         }
 
     }            //verifica botão pressionado
+
     private void AppModificaContaAdmin(){
         Intent intent = new Intent(this, MenuCadastro.class);
         startActivity(intent);
     }                                              //redireciona para a página de cadastro da própria conta
+
     private void AppModificaContaOutros(){
             Toast.makeText(this, "Ainda em construção :(", Toast.LENGTH_SHORT).show();
     }                                              //redireciona para configurar contas de outros usuários, em construição ainda

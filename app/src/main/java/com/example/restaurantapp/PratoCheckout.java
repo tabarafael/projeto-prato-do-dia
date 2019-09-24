@@ -2,7 +2,6 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -51,7 +49,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
         IVImagemCheckout = findViewById(R.id.IV_Imagem_Checkout);
         TVtotalCheckout= findViewById(R.id.TV_Checkout_Valor_Resultado);
         ETQuantidadeCheckout = findViewById(R.id.ET_Quantidade_pedido);
-        BTConfirmar = findViewById(R.id.BTFinalCheckout);
+        BTConfirmar = findViewById(R.id.BT_Final_Checkout);
         BTConfirmar.setOnClickListener(this);
         ETCheckoutObservacao = findViewById(R.id.ET_Checkout_Observacao);
 
@@ -63,7 +61,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
         valorPratoSelecionado = pratoSelecionado;
 
 
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", pratoSelecionado);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

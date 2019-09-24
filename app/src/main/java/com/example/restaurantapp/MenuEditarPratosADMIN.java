@@ -20,8 +20,7 @@ public class MenuEditarPratosADMIN extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_menu_editar_pratos_admin);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
 
         BTAddPrato = findViewById(R.id.BT_Edit_Adicionar);
         BTEditPrato = findViewById(R.id.BT_Edit_Editar);
@@ -30,6 +29,7 @@ public class MenuEditarPratosADMIN extends AppCompatActivity implements View.OnC
         BTEditPrato.setOnClickListener(this);
         BTRemovePrato.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view){
         if(view==BTAddPrato){
@@ -41,16 +41,19 @@ public class MenuEditarPratosADMIN extends AppCompatActivity implements View.OnC
         }
 
     }
+
     private void AppAbrirAdd(){
         Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
     }
+
     private void AppAbrirEdit(){
         Intent intent = new Intent(this, EditarModificarPratosADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
     }
+
     private void AppAbrirRemove(){
         Intent intent = new Intent(this, EditarRemoverPratosADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);

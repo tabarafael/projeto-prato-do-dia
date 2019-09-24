@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -19,17 +18,17 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     private Button BTPedidos;
     private Button BTAltCadastro;
     private Boolean ValorNivelContaUsuario;
-    private Integer ValorDiaHoje = 8;   //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
+    private int ValorDiaHoje = 8;   //Código para simbolizar o "dia Atual", os outros dias da semana são de 1-7 de DOM-SAB
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-        BTCardapioDia = findViewById(R.id.BTCardapioDia);
-        BTCardapioSemana = findViewById(R.id.BTCardapioSemana);
-        BTPedidos = findViewById(R.id.BTPedidos);
-        BTAltCadastro = findViewById(R.id.BTAltCadastro);
+        BTCardapioDia = findViewById(R.id.BT_Cardapio_Dia);
+        BTCardapioSemana = findViewById(R.id.BT_Cardapio_Semana);
+        BTPedidos = findViewById(R.id.BT_Pedidos);
+        BTAltCadastro = findViewById(R.id.BT_Alt_Cadastro);
 
         BTCardapioDia.setOnClickListener(this);
         BTCardapioSemana.setOnClickListener(this);
@@ -38,8 +37,8 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
+
     }
 
     @Override

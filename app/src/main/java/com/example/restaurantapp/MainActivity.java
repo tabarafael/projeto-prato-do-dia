@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BTentrar = findViewById(R.id.BTentrar);
+        BTentrar = findViewById(R.id.BT_Entrar);
         BTentrar.setOnClickListener(this);
-        BTcadastro = findViewById(R.id.BTcadastro);
+        BTcadastro = findViewById(R.id.BT_Cadastro);
         BTcadastro.setOnClickListener(this);
-        BTrecuperarsenha = findViewById(R.id.BTrecuperarsenha);
+        BTrecuperarsenha = findViewById(R.id.BT_Recuperar_Senha);
         BTrecuperarsenha.setOnClickListener(this);
-        ETusuario = findViewById(R.id.ETusuario);
-        ETsenha = findViewById(R.id.ETsenha);
+        ETusuario = findViewById(R.id.ET_Usuario);
+        ETsenha = findViewById(R.id.ET_Senha);
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void done(ParseObject object, ParseException e) {
                     if (e==null){
                         Boolean NivelAdmin = object.getBoolean("NivelAdmin");
-                        if (NivelAdmin == true){
+                        if (NivelAdmin){
                             Intent intent = new Intent(MainActivity.this, MenuPrincipalADMIN.class);
                             intent.putExtra("NivelConta", NivelAdmin);
                             finish();
@@ -147,15 +147,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                     }
-
                 }
             });
-
-
-        }else {
-
         }
-
     }          //Redireciona o usuário para o menu apropriado ao seu nível,
 
     private boolean AppVerificaVazio(){

@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="16dp">
-
         <TextView
             android:id="@+id/TV_Header_Descricao"
             android:layout_width="wrap_content"
@@ -61,10 +60,10 @@
             </LinearLayout>
         </ScrollView>
         <Button
-            android:id="@+id/BTPratoCheckout"
+            android:id="@+id/BT_Prato_Checkout"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:textSize="22sp"
-            android:text="Pedido"/>
+            android:text="@string/BTPedido"/>
     </LinearLayout>
 </LinearLayout>

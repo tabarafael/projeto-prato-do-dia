@@ -11,24 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="100dp">
         <TextView
-            android:id="@+id/TVPratoDiaHeader"
+            android:id="@+id/TV_Prato_Dia_Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Header"
+            android:text="@string/TXCabecalho"
             android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="9">
+        android:layout_height="wrap_content">
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
-
     </LinearLayout>
-
-
 </LinearLayout>

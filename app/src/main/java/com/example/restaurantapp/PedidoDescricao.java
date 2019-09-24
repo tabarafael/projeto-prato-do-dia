@@ -3,17 +3,12 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.parse.GetCallback;
-import com.parse.GetDataCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -61,7 +56,7 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
     }
 
     private void AppAlterarPedido(final String novoStatus){
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pedidos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pedidos");
         query.whereEqualTo("objectId", valorFiltro);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

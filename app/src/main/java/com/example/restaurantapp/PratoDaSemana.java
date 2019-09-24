@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class PratoDaSemana extends AppCompatActivity implements View.OnClickListener{
 
@@ -24,13 +23,13 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prato_da_semana);
 
-        BTPSDom = findViewById(R.id.BTPSDom);
-        BTPSSeg = findViewById(R.id.BTPSSeg);
-        BTPSTer = findViewById(R.id.BTPSTer);
-        BTPSQua = findViewById(R.id.BTPSQua);
-        BTPSQui = findViewById(R.id.BTPSQui);
-        BTPSSex = findViewById(R.id.BTPSSex);
-        BTPSSab = findViewById(R.id.BTPSSab);
+        BTPSDom = findViewById(R.id.BT_PS_Dom);
+        BTPSSeg = findViewById(R.id.BT_PS_Seg);
+        BTPSTer = findViewById(R.id.BT_PS_Ter);
+        BTPSQua = findViewById(R.id.BT_PS_Qua);
+        BTPSQui = findViewById(R.id.BT_PS_Qui);
+        BTPSSex = findViewById(R.id.BT_PS_Sex);
+        BTPSSab = findViewById(R.id.BT_PS_Sab);
 
         BTPSDom.setOnClickListener(this);
         BTPSSeg.setOnClickListener(this);
@@ -41,8 +40,7 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         BTPSSab.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta", false);
-            ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta", false);
 
     }
 

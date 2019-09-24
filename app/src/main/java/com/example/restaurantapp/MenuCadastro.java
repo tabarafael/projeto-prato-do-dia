@@ -4,15 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -33,16 +30,16 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_cadastro);
 
-        BTCancela = findViewById(R.id.BTCancela);
+        BTCancela = findViewById(R.id.BT_Cancela);
         BTCancela.setOnClickListener(this);
-        BTConfirma = findViewById(R.id.BTConfirma);
+        BTConfirma = findViewById(R.id.BT_Confirma);
         BTConfirma.setOnClickListener(this);
-        ETConfEmail = findViewById(R.id.ETConfEmail);
-        ETConfSenha = findViewById(R.id.ETConfSenha);
-        ETNewSenha = findViewById(R.id.ETNewSenha);
-        ETNewUsuario = findViewById(R.id.ETNewUsuario);
-        ETNome = findViewById(R.id.ETNome);
-        ETnewEmail = findViewById(R.id.ETNewEmail);
+        ETConfEmail = findViewById(R.id.ET_Conf_Email);
+        ETConfSenha = findViewById(R.id.ET_Conf_Senha);
+        ETNewSenha = findViewById(R.id.ET_New_Senha);
+        ETNewUsuario = findViewById(R.id.ET_New_Usuario);
+        ETNome = findViewById(R.id.ET_Nome);
+        ETnewEmail = findViewById(R.id.ET_New_Email);
     }  //Listeners dos botões
 
     @Override

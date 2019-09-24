@@ -1,6 +1,5 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -9,13 +8,10 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoEspera extends ListActivity {
@@ -56,7 +52,6 @@ public class PedidoEspera extends ListActivity {
 
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pedidos");
-        final ArrayList<Object> listaPedidos = new ArrayList<Object>();
         query.whereEqualTo("pedidosSituacao", valorFiltro);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override

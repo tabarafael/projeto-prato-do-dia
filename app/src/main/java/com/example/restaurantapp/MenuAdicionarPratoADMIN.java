@@ -11,29 +11,22 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.provider.OpenableColumns;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
-
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,8 +50,8 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
 
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
-        ValorNivelContaUsuario = ValorNivelConta;
+        ValorNivelContaUsuario  = intent.getBooleanExtra("NivelConta",false);
+
 
         ETNome = findViewById(R.id.ET_Nome_Adicionar);
         ETIngredientes = findViewById(R.id.ET_Ingredientes_Adicionar);
@@ -85,7 +78,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
     public class DecimalDigitsInputFilter implements InputFilter{
 
         Pattern pattern;
-        public DecimalDigitsInputFilter(int digitsBeforeZero, int digitsAfterZero){
+        private DecimalDigitsInputFilter(int digitsBeforeZero, int digitsAfterZero){
             pattern=Pattern.compile("[0-9]{0," + (digitsBeforeZero-1) + "}+((\\.[0-9]{0," + (digitsAfterZero-1) + "})?)||(\\.)?");
         }
         @Override

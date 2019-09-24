@@ -59,9 +59,9 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_editar_editor_pratos_admin);
 
         Intent intent = getIntent();
-        Boolean ValorNivelConta = intent.getBooleanExtra("NivelConta",false);
+        ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
         String PratoSelecionado = intent.getStringExtra("PratoSelecionado");
-        ValorNivelContaUsuario = ValorNivelConta;
+
 
         ETNome = findViewById(R.id.ET_Nome_Adicionar);
         ETIngredientes = findViewById(R.id.ET_Ingredientes_Adicionar);
@@ -85,7 +85,7 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
     }
 
     private void AppFillGaps(String IdPratoSelecionado){
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Pratos");
+        ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("objectId", IdPratoSelecionado);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

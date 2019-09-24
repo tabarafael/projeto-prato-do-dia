@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,14 +25,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/framelogin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/TVusuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/TVUsuario"
@@ -42,7 +39,7 @@
             android:layout_marginStart="30dp"/>
 
         <EditText
-            android:id="@+id/ETusuario"
+            android:id="@+id/ET_Usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -50,7 +47,6 @@
             android:singleLine="true"/>
 
         <TextView
-            android:id="@+id/TVsenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/TVSenha"
@@ -58,7 +54,7 @@
             android:layout_marginLeft="30dp"/>
 
         <EditText
-            android:id="@+id/ETsenha"
+            android:id="@+id/ET_Senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -68,29 +64,28 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/framebotao"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_height="0dp">
 
         <Button
-            android:id="@+id/BTentrar"
+            android:id="@+id/BT_Entrar"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:text="@string/BTEntrar"
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/BTcadastro"
+            android:id="@+id/BT_Cadastro"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:text="@string/BTCadastro"
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/BTrecuperarsenha"
+            android:id="@+id/BT_Recuperar_Senha"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/BTRecuperarSenha"
