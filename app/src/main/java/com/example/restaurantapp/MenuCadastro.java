@@ -20,7 +20,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
     private Button BTConfirma;
     private EditText ETNewUsuario;
     private EditText ETNome;
-    private EditText ETnewEmail;
+    private EditText ETNewEmail;
     private EditText ETConfEmail;
     private EditText ETNewSenha;
     private EditText ETConfSenha;
@@ -39,7 +39,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
         ETNewSenha = findViewById(R.id.ET_New_Senha);
         ETNewUsuario = findViewById(R.id.ET_New_Usuario);
         ETNome = findViewById(R.id.ET_Nome);
-        ETnewEmail = findViewById(R.id.ET_New_Email);
+        ETNewEmail = findViewById(R.id.ET_New_Email);
     }  //Listeners dos botões
 
     @Override
@@ -74,7 +74,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
 
         String NewUsuario = ETNewUsuario.getText().toString();
         String Nome = ETNome.getText().toString();
-        String NewEmail = ETnewEmail.getText().toString();                 //Recebe os dados inseridos no App
+        String NewEmail = ETNewEmail.getText().toString();                 //Recebe os dados inseridos no App
         String ConfEmail = ETConfEmail.getText().toString();
         String NewSenha = ETNewSenha.getText().toString();
         String ConfSenha = ETConfSenha.getText().toString();
@@ -84,11 +84,11 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
         } else if(TextUtils.isEmpty(Nome)) {
             ETNome.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(NewEmail)) {
-            ETnewEmail.setError(getString(R.string.ERVazio));
+            ETNewEmail.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(ConfEmail)) {                      //Verifica se estão vazios e cria um erro caso sim.
             ETConfEmail.setError(getString(R.string.ERVazio));
         } else if(TextUtils.isEmpty(NewSenha) || (NewSenha.length()<8)) {
-            ETNewSenha.setError(getString(R.string.ERVazio));
+            new AlertDialog.Builder(this).setMessage(getString(R.string.ERSenhaFraca)).show();
         } else if(TextUtils.isEmpty(ConfSenha)) {
             ETConfSenha.setError(getString(R.string.ERVazio));
         } else {

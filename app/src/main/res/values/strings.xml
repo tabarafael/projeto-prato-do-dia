@@ -82,11 +82,29 @@
     <string name="TXPedidoAndamento">Pedidos em Andamento</string>
     <string name="TXPedidoEspera">Pedidos em Espera</string>
     <string name="TXPedidoConcluido">Pedidos Concluídos</string>
-    
+    <string name="TXRelatorioQuantidade">Quantidade de pedidos: %1$d</string>
+    <string name="TXRelatorioQuantidadePratos">Quantidade de pratos: %1$d</string>
+    <string name="TXRelatorioPrecoTotal">Valor combinado: R$ %1$.2f</string>
+    <string name="TXRelatorioNomePrato">Nome do prato: %1$s</string>
+    <string name="TXRelatorioSituacao">Situação: %1$s</string>
+    <string name="TXRelatorioPratoDono">Usuário: %1$s</string>
+    <string name="TXRelatorioPratoPreco">Preço: R$%1$.2f</string>
+    <string name="TXRelatorioPratoObservacao">Observação: %1$s</string>
+    <string name="TXRelatorioPratoData">Data: %1$s</string>
+    <string name="TXRelatorioPratoquantidade">Quantidade: %1$d</string>
+    <string name="TXHeaderRelatorioCompleto">Todos os registros</string>
+    <string name="TXHeaderRelatorioPratos">Todos os pratos</string>
+    <string name="TXHeaderRelatorioUsuario">Todos os usuários</string>
+    <string name="ERSenhaFraca">A sua senha é muito fraca.</string>
+    <string name="ERPratoSemana">Para selecionar um prato, utilize o cardápio do dia</string>
+
 
 
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">LbKeHSa7KwUxQ5pq9x5zvi2zjxUNmlESxSbQbdhp</string>
     <string name="back4app_client_key">OL0AmW3b8TERiXsn0nEUnBpbqL6yZXpm5RB83D2N</string>
+    <string name="title_activity_gerador_relatorio_usuario">GeradorRelatorioUsuario</string>
+    <string name="title_activity_gerador_relatorio_pratos">GeradorRelatorioPratos</string>
+
 </resources>

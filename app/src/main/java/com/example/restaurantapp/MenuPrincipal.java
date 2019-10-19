@@ -80,6 +80,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent (this, PratoDoDia.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorDia",ValorDiaHoje);
+        intent.putExtra("Origem",getClass().getName());
         startActivity(intent);
     }    //Direciona para activity cardápio do dia atual, filtar pratos do dia **em construção
 

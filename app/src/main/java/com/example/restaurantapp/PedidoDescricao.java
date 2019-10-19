@@ -14,7 +14,7 @@ import com.parse.ParseQuery;
 
 public class PedidoDescricao extends AppCompatActivity implements View.OnClickListener {
 
-    private Boolean ValorNivelContaUsuario;
+    private boolean ValorNivelContaUsuario;
     private String valorFiltro;
     private Button BTIniciarPedido;
     private Button BTCancelarPedido;

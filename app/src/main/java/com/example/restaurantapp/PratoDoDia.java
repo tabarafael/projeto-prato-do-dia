@@ -1,5 +1,6 @@
 package com.example.restaurantapp;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,8 @@ public class PratoDoDia extends ListActivity {
 
     private TextView TVPratoDiaHeader;
     private Boolean ValorNivelContaUsuario;
-    private Integer ValorSemana = 0;
+    private int ValorSemana = 0;
+    private String origem;
 
 
     @Override
@@ -31,6 +33,7 @@ public class PratoDoDia extends ListActivity {
 
 
         Intent intent = getIntent();
+        origem = intent.getStringExtra("Origem");
         ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta", false);
         ValorSemana = intent.getIntExtra("ValorDia",0);
         if (ValorSemana==8){
@@ -47,21 +50,23 @@ public class PratoDoDia extends ListActivity {
         else{
             AppDiaSemana(ValorSemana);
         }
-
-
     }
 
     @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
-        String item = (String) getListAdapter().getItem(position);
-        Intent intent = new Intent(PratoDoDia.this, PratoDescricao.class);
-        intent.putExtra("NivelConta", ValorNivelContaUsuario);
-        intent.putExtra("PratoSelecionado",item);
-        startActivity(intent);
+        if (origem.equals("com.example.restaurantapp.PratoDaSemana")){
+            new AlertDialog.Builder(this).setMessage(getString(R.string.ERPratoSemana)).show();
+        }else{
+            String item = (String) getListAdapter().getItem(position);
+            Intent intent = new Intent(PratoDoDia.this, PratoDescricao.class);
+            intent.putExtra("NivelConta", ValorNivelContaUsuario);
+            intent.putExtra("PratoSelecionado",item);
+            startActivity(intent);
+        }
 
     }
 
-    private void AppGetPratosInBackGround(Integer hoje){
+    private void AppGetPratosInBackGround(int hoje){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
         query.whereEqualTo("PratoDia", hoje);
@@ -84,7 +89,7 @@ public class PratoDoDia extends ListActivity {
 
     }
 
-    private void AppDiaSemana(Integer ValorSemana){
+    private void AppDiaSemana(int ValorSemana){
 
         switch (ValorSemana){
             case 1:

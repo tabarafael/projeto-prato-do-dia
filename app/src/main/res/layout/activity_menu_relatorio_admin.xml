@@ -7,10 +7,19 @@
     android:orientation="vertical"
     android:layout_margin="16dp">
     <TextView
-        android:layout_width="wrap_content"
-        android:textSize="22sp"
-        android:text="Precisa do banco de dados funcionando primeiro para conseguir relatórios"
-        android:layout_height="wrap_content" />
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecione o tipo de relatório"
+        android:textSize="25dp"/>
+    <Button
+        android:id="@+id/BT_Relatorio_Usuario"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Usuários"/>
+    <Button
+        android:id="@+id/BT_Relatorio_Prato"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Pratos"/>
 
 </LinearLayout>

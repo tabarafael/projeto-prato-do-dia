@@ -16,7 +16,7 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
     private Button BTPSQui;
     private Button BTPSSex;
     private Button BTPSSab;
-    private Boolean ValorNivelContaUsuario;
+    private boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +62,11 @@ public class PratoDaSemana extends AppCompatActivity implements View.OnClickList
         }
     }     //Verifica o botão pressionado
 
-    private void AppAbrePratoDoDia (Integer valorDia){
+    private void AppAbrePratoDoDia (int valorDia){
         Intent intent = new Intent (this, PratoDoDia.class);
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorDia",valorDia);
+        intent.putExtra("Origem",getClass().getName());
         startActivity(intent);
     }  //Esta parte define qual o dia do cardápio que o usuário quer olhar, para então filtrar do servidor somente as opções relevantes.
 }

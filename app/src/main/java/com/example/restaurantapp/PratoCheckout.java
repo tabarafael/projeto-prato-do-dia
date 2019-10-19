@@ -30,10 +30,10 @@ import com.parse.SaveCallback;
 public class PratoCheckout extends AppCompatActivity implements View.OnClickListener {
 
     private Button BTConfirmar;
-    private Boolean valorNivelContaUsuario;
+    private boolean valorNivelContaUsuario;
     private String valorPratoSelecionado;
     private Double valorPrecoTotal;
-    private Double valorQuantidade;
+    private double valorQuantidade;
     private ImageView IVImagemCheckout;
     private TextView TVtotalCheckout;
     private EditText ETQuantidadeCheckout;

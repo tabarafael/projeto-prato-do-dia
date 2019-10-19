@@ -13,7 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditarEditorPratosADMIN"></activity>
+        <activity android:name=".GeradorRelatorioCompletoUsuario"></activity>
+        <activity android:name=".GeradorRelatorioCompletoPratos" />
+        <activity
+            android:name=".GeradorRelatorioPratos"
+            android:label="@string/title_activity_gerador_relatorio_pratos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GeradorRelatorioUsuario"
+            android:label="@string/title_activity_gerador_relatorio_usuario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EditarEditorPratosADMIN" />
         <activity android:name=".EditarRemoverPratosADMIN" />
         <activity android:name=".EditarModificarPratosADMIN" />
         <activity android:name=".MenuEditarPratosADMIN" />
