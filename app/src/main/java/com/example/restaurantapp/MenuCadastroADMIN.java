@@ -36,12 +36,13 @@ public class MenuCadastroADMIN extends AppCompatActivity implements View.OnClick
     }            //verifica botão pressionado
 
     private void AppModificaContaAdmin(){
-        Intent intent = new Intent(this, MenuCadastro.class);
+        Intent intent = new Intent(this, MenuAtCadastro.class);
         startActivity(intent);
     }                                              //redireciona para a página de cadastro da própria conta
 
     private void AppModificaContaOutros(){
-            Toast.makeText(this, "Ainda em construção :(", Toast.LENGTH_SHORT).show();
-    }                                              //redireciona para configurar contas de outros usuários, em construição ainda
+        Intent intent = new Intent (MenuCadastroADMIN.this, MenuPermissaoADMIN.class);
+        startActivity(intent);
+    }                                              //redireciona para adicionar ou remover permissão de administrador de outras contas
 
 }

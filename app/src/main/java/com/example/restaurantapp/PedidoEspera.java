@@ -12,6 +12,8 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.util.List;
 
 public class PedidoEspera extends ListActivity {
@@ -39,13 +41,14 @@ public class PedidoEspera extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
-        String item = (String) getListAdapter().getItem(position);
-        Intent intent = new Intent(PedidoEspera.this, PedidoDescricao.class);
-        intent.putExtra("NivelConta", ValorNivelContaUsuario);
-        intent.putExtra("PratoSelecionado",item);
-        intent.putExtra("ValorSituacao", valorFiltro);
-        startActivity(intent);
-
+        if (ValorNivelContaUsuario){
+            String item = (String) getListAdapter().getItem(position);
+            Intent intent = new Intent(PedidoEspera.this, PedidoDescricao.class);
+            intent.putExtra("NivelConta", ValorNivelContaUsuario);
+            intent.putExtra("PratoSelecionado",item);
+            intent.putExtra("ValorSituacao", valorFiltro);
+            startActivity(intent);
+        }
     }
 
     private void AppGetListaPratos(String valorFiltro){
@@ -53,6 +56,9 @@ public class PedidoEspera extends ListActivity {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pedidos");
         query.whereEqualTo("pedidosSituacao", valorFiltro);
+        if (!ValorNivelContaUsuario){
+            query.whereEqualTo("pedidosUserId", ParseUser.getCurrentUser().getObjectId());
+        }
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objectsList, ParseException e) {

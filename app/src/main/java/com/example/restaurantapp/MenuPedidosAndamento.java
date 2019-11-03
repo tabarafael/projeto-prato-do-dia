@@ -32,7 +32,7 @@ public class MenuPedidosAndamento extends AppCompatActivity implements View.OnCl
 
         Intent intent = getIntent();
         ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
-                }
+    }
     @Override
     public void onClick(View view){
         if (view == BTEspera){
@@ -48,7 +48,7 @@ public class MenuPedidosAndamento extends AppCompatActivity implements View.OnCl
 
     private void AppAbrirFiltro(String filtro){
         Intent intent = new Intent(this,PedidoEspera.class);
-        intent.putExtra("ValorConta",ValorNivelContaUsuario);
+        intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorFiltro", filtro);
         startActivity(intent);
     }

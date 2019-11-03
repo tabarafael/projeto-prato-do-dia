@@ -92,11 +92,12 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
     private void AppPedidos(){
         Intent intent = new Intent (this, MenuPedidosAndamento.class);
+        intent.putExtra("NivelAdmin",ValorNivelContaUsuario);
         startActivity(intent);
     }         //Abre activity mostrando estado dos pedidos pertintentes ao usuário
 
     private void AppCadastro(){
-        Intent intent = new Intent(this, MenuCadastro.class);
+        Intent intent = new Intent(this, MenuAtCadastro.class);
         startActivity(intent);
-    }       //Abre menu de cadastro para o usuário alterar seus dados
+    }       //Abre menu para o usuário alterar seus dados
 }

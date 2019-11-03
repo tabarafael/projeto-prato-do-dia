@@ -97,6 +97,15 @@
     <string name="TXHeaderRelatorioUsuario">Todos os usuários</string>
     <string name="ERSenhaFraca">A sua senha é muito fraca.</string>
     <string name="ERPratoSemana">Para selecionar um prato, utilize o cardápio do dia</string>
+    <string name="TXModSenha">Modificar Senha</string>
+    <string name="TXPermADMIN">Insira usuário que deseja modificar</string>
+    <string name="TXPermSenhaADMIN">Insira a senha do usuário</string>
+    <string name="TXPermNivel">Escolha o nível de permissão</string>
+    <string-array name="SANivelADMIN">
+        <item> </item>
+        <item>Administrador</item>
+        <item>Cliente</item>
+    </string-array>
 
 
 
@@ -106,5 +115,6 @@
     <string name="back4app_client_key">OL0AmW3b8TERiXsn0nEUnBpbqL6yZXpm5RB83D2N</string>
     <string name="title_activity_gerador_relatorio_usuario">GeradorRelatorioUsuario</string>
     <string name="title_activity_gerador_relatorio_pratos">GeradorRelatorioPratos</string>
+    <string name="sender_ID">211398102774</string>
 
 </resources>

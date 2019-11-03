@@ -2,15 +2,24 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.parse.FunctionCallback;
 import com.parse.GetCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PedidoDescricao extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +32,7 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
     private final String valorIniciado = "Em Andamento";
     private final String valorCancelado = "Cancelado";
     private final String valorConcluido = "Concluido";
+    private String usuarioPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,8 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
         BTCancelarPedido.setOnClickListener(this);
         BTProntoPedido = findViewById(R.id.BT_Concluido_Pedido);
         BTProntoPedido.setOnClickListener(this);
+
+        GetPedidoUser(valorFiltro);
         AppLimparBotoes(valorFIltroSituacao);
     }
 
@@ -48,10 +60,13 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view == BTIniciarPedido){
             AppAlterarPedido(valorIniciado);
+            FazerNotificacaoInicio();
         } else if (view == BTCancelarPedido){
             AppAlterarPedido(valorCancelado);
+            FazerNotificacaoCancelado();
         } else if (view == BTProntoPedido){
             AppAlterarPedido(valorConcluido);
+            FazerNotificacaoPronto();
         }
     }
 
@@ -90,5 +105,74 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
         }else if (valorStatus.equals(valorSituacao)){
             BTProntoPedido.setVisibility(View.GONE);
         }
+    }
+
+    private void FazerNotificacaoPronto(){
+        Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
+
+        final HashMap<String,String> params = new HashMap<>();
+        params.put("Channels",usuarioPedido);
+        ParseCloud.callFunctionInBackground("notificacaoPronto",params , new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if (e == null){
+                    Toast.makeText(PedidoDescricao.this, "Notificação enviada", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PedidoDescricao.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+    }
+    private void FazerNotificacaoInicio(){
+        Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
+
+        final HashMap<String,String> params = new HashMap<>();
+        params.put("Channels",usuarioPedido);
+        ParseCloud.callFunctionInBackground("notificacaoInicio",params , new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if (e == null){
+                    Toast.makeText(PedidoDescricao.this, "Notificação enviada", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PedidoDescricao.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+    }
+    private void FazerNotificacaoCancelado(){
+        Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
+
+        final HashMap<String,String> params = new HashMap<>();
+        params.put("Channels",usuarioPedido);
+        ParseCloud.callFunctionInBackground("notificacaoCancelado",params , new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if (e == null){
+                    Toast.makeText(PedidoDescricao.this, "Notificação enviada", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PedidoDescricao.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+    }
+
+
+
+    private void GetPedidoUser(String PratoID){
+                ParseQuery<ParseObject> query = new ParseQuery<>("Pedidos");
+        query.whereEqualTo("objectId", PratoID);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if (e==null){
+                    usuarioPedido = object.getString("pedidosUserNome");
+                }else{
+                    Toast.makeText(PedidoDescricao.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

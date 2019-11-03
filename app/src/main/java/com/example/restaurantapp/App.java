@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 
 public class App extends Application {
     public void onCreate(){
@@ -12,5 +13,9 @@ public class App extends Application {
                 .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
                 .build());
+
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("GCMSenderId",getString(R.string.sender_ID));
+        installation.saveInBackground();
     }
 }
