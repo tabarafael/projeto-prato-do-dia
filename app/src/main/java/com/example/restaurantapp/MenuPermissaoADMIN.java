@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -60,6 +61,10 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
         }else if (TextUtils.isEmpty(senha)){
             ETSenha.setError(getString(R.string.ERUserVazio));
         }else {
+            final ProgressDialog pd = new ProgressDialog(MenuPermissaoADMIN.this);
+            pd.setMessage(getString(R.string.TXLoading));
+            pd.setCancelable(false);
+            pd.show();
             ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
             query.whereEqualTo("username",usuario);
             query.findInBackground(new FindCallback<ParseObject>() {
@@ -77,6 +82,7 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                             @Override
                                             public void done(ParseException e) {
                                                 if (e==null){
+                                                    pd.dismiss();
                                                     new  AlertDialog.Builder(MenuPermissaoADMIN.this)
                                                             .setMessage("Permissão modificada com sucesso.")
                                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -85,11 +91,14 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                                                     AppLimpar();
                                                                 }
                                                             }).show();
+                                                }else{
+                                                    pd.dismiss();
                                                 }
                                             }
                                         });
                                         ParseUser.logOut();
                                     } else {
+                                        pd.dismiss();
                                         Toast.makeText(MenuPermissaoADMIN.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                         ParseUser.logOut();
                                     }
@@ -105,6 +114,7 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                             @Override
                                             public void done(ParseException e) {
                                                 if (e==null){
+                                                    pd.dismiss();
                                                     new  AlertDialog.Builder(MenuPermissaoADMIN.this)
                                                             .setMessage("Permissão modificada com sucesso.")
                                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -113,11 +123,14 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                                                     AppLimpar();
                                                                 }
                                                             }).show();
+                                                }else{
+                                                    pd.dismiss();
                                                 }
                                             }
                                         });
                                         ParseUser.logOut();
                                     } else {
+                                        pd.dismiss();
                                         Toast.makeText(MenuPermissaoADMIN.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                         ParseUser.logOut();
                                     }
@@ -125,6 +138,7 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                             });
                         }
                     }else {
+                        pd.dismiss();
                         Toast.makeText(MenuPermissaoADMIN.this,e.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }

@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,7 @@ public class PratoDoDia extends ListActivity {
         AppGetPratosInBackGround(ValorSemana);
 
 
+
         if(ValorSemana == 0){
             Toast.makeText(this,"Ocorreu um erro, Valor Semana",Toast.LENGTH_SHORT).show();
             finish();
@@ -68,6 +70,11 @@ public class PratoDoDia extends ListActivity {
 
     private void AppGetPratosInBackGround(int hoje){
 
+        final ProgressDialog pd = new ProgressDialog(PratoDoDia.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
         query.whereEqualTo("PratoDia", hoje);
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -80,9 +87,11 @@ public class PratoDoDia extends ListActivity {
                     }
                     ArrayAdapterCardapio adapter = new ArrayAdapterCardapio(PratoDoDia.this,listaNomePratos);
                     setListAdapter(adapter);
+                    pd.dismiss();
 
                 }else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
         });
@@ -120,6 +129,4 @@ public class PratoDoDia extends ListActivity {
                 Toast.makeText(this,"default",Toast.LENGTH_SHORT).show();
         }     //Verifica "de onde o usuário vem", 1-7 é o mennu semanal, 8 é "dia atual". Atualmente apenas modifica o header, mas deve filtrar os pratos disponíveis nofuturo
     }
-
-
 }

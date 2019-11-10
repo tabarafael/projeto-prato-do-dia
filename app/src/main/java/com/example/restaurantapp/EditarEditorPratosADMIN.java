@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -290,6 +291,10 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
     }
 
     private void AppSalvarDados(Integer dia){
+        final ProgressDialog pd = new ProgressDialog(EditarEditorPratosADMIN.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
 
         String valorNome=null;
         String valorIngredientes=null;
@@ -302,10 +307,12 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
             valorPreco = Double.parseDouble(ETPreco.getText().toString());
         }catch (Exception e ){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            pd.dismiss();
         }
 
         if(valorNome.isEmpty()||valorIngredientes.isEmpty()||valorDescricao.isEmpty()||valorPreco==null||valorPreco<=0||!hasImage(IVPreview)){
             Toast.makeText(this,"Verifique os campos",Toast.LENGTH_LONG).show();
+            pd.dismiss();
         }else{
             ParseObject upload;
             if (diaOriginal==dia||ContaDias()==1){
@@ -338,6 +345,7 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
                 }
             }catch (IOException e){
                 Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                pd.dismiss();
             }
             upload.put("PratoNome",valorNome);
             upload.put("PratoIngrediente",valorIngredientes);
@@ -349,9 +357,10 @@ public class EditarEditorPratosADMIN extends AppCompatActivity implements View.O
                 public void done(ParseException e) {
                     if (e==null){
                         Toast.makeText(EditarEditorPratosADMIN.this,"Salvo com sucesso!",Toast.LENGTH_SHORT).show();
-
+                        pd.dismiss();
                     }else{
                         Toast.makeText(EditarEditorPratosADMIN.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
                     }
                 }
             });

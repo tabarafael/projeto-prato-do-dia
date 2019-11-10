@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -47,12 +48,18 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
         BTCheckout.setOnClickListener(this);
 
         Intent intent = getIntent();
-        Boolean valorNivelConta = intent.getBooleanExtra("NivelConta", false);
-        String pratoSelecionado = intent.getStringExtra("PratoSelecionado");
+        valorNivelContaUsuario = intent.getBooleanExtra("NivelConta", false);
+        valorPratoSelecionado = intent.getStringExtra("PratoSelecionado");
 
-        valorPratoSelecionado = pratoSelecionado;
-        valorNivelContaUsuario = valorNivelConta;
+        inserirDados(valorPratoSelecionado);
 
+
+    }
+    private void inserirDados(String pratoSelecionado){
+        final ProgressDialog pd = new ProgressDialog(PratoDescricao.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", pratoSelecionado);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -78,12 +85,13 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
                     textoDescricao.setText(getString(R.string.TXDescricao,conteudoTextoDescricao));
                     ingredienteDescricao.setText(getString(R.string.TXIngredientes,conteudoIngredienteDescricao));
                     precoDescricao.setText(getString(R.string.TXPreco,conteudoPrecoDescricao));
+                    pd.dismiss();
                 }else{
+                    pd.dismiss();
                     Toast.makeText(PratoDescricao.this,"Erro de servidor", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
 
     }
 

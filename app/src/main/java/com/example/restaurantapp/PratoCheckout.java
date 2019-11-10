@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -54,19 +55,44 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
         ETCheckoutObservacao = findViewById(R.id.ET_Checkout_Observacao);
 
         Intent intent = getIntent();
-        Boolean nivelConta = intent.getBooleanExtra("NivelConta", false);
-        String pratoSelecionado = intent.getStringExtra("PratoSelecionado");
+        valorNivelContaUsuario = intent.getBooleanExtra("NivelConta", false);
+        valorPratoSelecionado  = intent.getStringExtra("PratoSelecionado");
         final Double valorPrecoPrato = intent.getDoubleExtra("PratoPreco", -1);
-        valorNivelContaUsuario = nivelConta;
-        valorPratoSelecionado = pratoSelecionado;
+
+        InserirImagem(valorPratoSelecionado);
+        InserirQuantidadeCheckout(valorPrecoPrato);
 
 
+        ETQuantidadeCheckout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!ETQuantidadeCheckout.hasFocus()){
+                    if (TextUtils.isEmpty(ETQuantidadeCheckout.getText())) {
+                        Toast.makeText(PratoCheckout.this,getText(R.string.ERVazio),Toast.LENGTH_SHORT).show();
+                        TVtotalCheckout.setText("");
+                    }else{
+                        Double quantidade = Double.parseDouble(ETQuantidadeCheckout.getText().toString());
+                        if(quantidade!=null||quantidade!=0){
+                            valorPrecoTotal = (valorPrecoPrato * quantidade);
+                            TVtotalCheckout.setText(getString(R.string.TXPreco2,valorPrecoTotal));
+                            }
+                    }
+                }
+            }
+        });
+    }
+    private void InserirImagem(String pratoSelecionado){
+        final ProgressDialog pd = new ProgressDialog(PratoCheckout.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", pratoSelecionado);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
                 if (e==null){
+                    pd.dismiss();
                     ParseFile imagem = (ParseFile) object.get("PratoImagem");
                     imagem.getDataInBackground(new GetDataCallback() {
                         @Override
@@ -80,10 +106,14 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
 
 
                 }else{
+                    pd.dismiss();
                     Toast.makeText(PratoCheckout.this,"Erro de servidor", Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    private void InserirQuantidadeCheckout(final double valorPrecoPrato){
 
         ETQuantidadeCheckout.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -105,24 +135,6 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 return handled;
-            }
-        });
-
-        ETQuantidadeCheckout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if (!ETQuantidadeCheckout.hasFocus()){
-                    if (TextUtils.isEmpty(ETQuantidadeCheckout.getText())) {
-                        Toast.makeText(PratoCheckout.this,getText(R.string.ERVazio),Toast.LENGTH_SHORT).show();
-                        TVtotalCheckout.setText("");
-                    }else{
-                        Double quantidade = Double.parseDouble(ETQuantidadeCheckout.getText().toString());
-                        if(quantidade!=null||quantidade!=0){
-                            valorPrecoTotal = (valorPrecoPrato * quantidade);
-                            TVtotalCheckout.setText(getString(R.string.TXPreco2,valorPrecoTotal));
-                            }
-                    }
-                }
             }
         });
     }

@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,31 +61,41 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view == BTIniciarPedido){
             AppAlterarPedido(valorIniciado);
-            FazerNotificacaoInicio();
         } else if (view == BTCancelarPedido){
             AppAlterarPedido(valorCancelado);
-            FazerNotificacaoCancelado();
         } else if (view == BTProntoPedido){
             AppAlterarPedido(valorConcluido);
-            FazerNotificacaoPronto();
         }
     }
 
     private void AppAlterarPedido(final String novoStatus){
+        final ProgressDialog pd = new ProgressDialog(PedidoDescricao.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = new ParseQuery<>("Pedidos");
         query.whereEqualTo("objectId", valorFiltro);
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
                 if (e==null){
+                    pd.dismiss();
                 object.put("pedidosSituacao", novoStatus);
                 object.saveInBackground();
                 Intent intent = new Intent(PedidoDescricao.this, PedidoEspera.class);
                 intent.putExtra("NivelConta",ValorNivelContaUsuario);
                 intent.putExtra("ValorFiltro", novoStatus);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                if(novoStatus.equals(valorIniciado)){
+                    FazerNotificacaoInicio();
+                }else if(novoStatus.equals(valorConcluido)){
+                    FazerNotificacaoPronto();
+                }else if(novoStatus.equals(valorCancelado)){
+                    FazerNotificacaoCancelado();
+                }
                 startActivity(intent);
                 }else{
+                    pd.dismiss();
                     Toast.makeText(PedidoDescricao.this,"Erro de servidor", Toast.LENGTH_LONG).show();
                 }
             }
@@ -109,7 +120,6 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
 
     private void FazerNotificacaoPronto(){
         Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
-
         final HashMap<String,String> params = new HashMap<>();
         params.put("Channels",usuarioPedido);
         ParseCloud.callFunctionInBackground("notificacaoPronto",params , new FunctionCallback<Object>() {

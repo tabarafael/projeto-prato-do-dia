@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }            //Verifica o botão selecionado
 
     private void AppEntrar(){
+        ProgressDialog pd = new ProgressDialog(MainActivity.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         final String usuario = ETusuario.getText().toString();
         String senha = ETsenha.getText().toString();
 

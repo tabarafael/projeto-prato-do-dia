@@ -1,6 +1,7 @@
 package com.example.restaurantapp;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,6 +40,10 @@ public class GeradorRelatorioPratos extends ListActivity{
 
     }
     private void AppGetListaPratos(){
+        final ProgressDialog pd = new ProgressDialog(GeradorRelatorioPratos.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -53,8 +58,10 @@ public class GeradorRelatorioPratos extends ListActivity{
 
                     ArrayAdapterRelatorioPrato adapter = new ArrayAdapterRelatorioPrato(GeradorRelatorioPratos.this,result);
                     setListAdapter(adapter);
+                    pd.dismiss();
                 }else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
         });

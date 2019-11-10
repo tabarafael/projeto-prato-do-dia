@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -87,6 +88,10 @@ public class EditarRemoverPratosADMIN extends ListActivity {
     }
 
     private void AppGetListaPratos(){
+        final ProgressDialog pd = new ProgressDialog(EditarRemoverPratosADMIN.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pratos");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -98,9 +103,10 @@ public class EditarRemoverPratosADMIN extends ListActivity {
                     }
                     ArrayAdapterEditorPratos adapter = new ArrayAdapterEditorPratos(EditarRemoverPratosADMIN.this,listaNomePedidos);
                     setListAdapter(adapter);
-
+                    pd.dismiss();
                 }else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
         });

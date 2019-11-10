@@ -1,6 +1,7 @@
 package com.example.restaurantapp;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -40,6 +41,10 @@ public class GeradorRelatorioUsuario extends ListActivity {
     }
 
     private void AppGetListaUsuario(){
+        final ProgressDialog pd = new ProgressDialog(GeradorRelatorioUsuario.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -52,8 +57,10 @@ public class GeradorRelatorioUsuario extends ListActivity {
 
                     ArrayAdapterRelatorioUsuario adapter = new ArrayAdapterRelatorioUsuario(GeradorRelatorioUsuario.this,listaUserId);
                     setListAdapter(adapter);
+                    pd.dismiss();
                 }else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
         });

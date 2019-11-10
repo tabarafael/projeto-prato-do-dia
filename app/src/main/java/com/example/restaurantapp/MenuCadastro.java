@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -98,6 +99,10 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
             }else if (!NewSenha.equals(ConfSenha)){
                 new AlertDialog.Builder(this).setMessage(getString(R.string.ERSenhaDif)).show();    //Verifica se as duas senhas são iguais
             }else {
+                final ProgressDialog pd = new ProgressDialog(MenuCadastro.this);
+                pd.setMessage(getString(R.string.TXLoading));
+                pd.setCancelable(false);
+                pd.show();
                 ParseUser user = new ParseUser();
                 user.setUsername(NewUsuario);
                 user.setEmail(NewEmail);
@@ -108,6 +113,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
+                            pd.dismiss();
                             new AlertDialog.Builder(MenuCadastro.this)
                                     .setMessage(getString(R.string.TXCadastroSuc))
                                     .setCancelable(false)
@@ -119,6 +125,7 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
                                     })
                                     .show();
                         } else {
+                            pd.dismiss();
                             ParseUser.logOut();
                             Toast.makeText(MenuCadastro.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         }

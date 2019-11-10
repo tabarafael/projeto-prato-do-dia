@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -52,17 +53,22 @@ public class PedidoEspera extends ListActivity {
     }
 
     private void AppGetListaPratos(String valorFiltro){
-
+        final ProgressDialog pd = new ProgressDialog(PedidoEspera.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pedidos");
         query.whereEqualTo("pedidosSituacao", valorFiltro);
         if (!ValorNivelContaUsuario){
             query.whereEqualTo("pedidosUserId", ParseUser.getCurrentUser().getObjectId());
+            pd.dismiss();
         }
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objectsList, ParseException e) {
                 if (e==null){
+                    pd.dismiss();
                     String[] listaNomePedidos = new String[objectsList.size()];
                     for (int i =0; i < objectsList.size();i++){
                         listaNomePedidos[i] = objectsList.get(i).getObjectId();
@@ -71,6 +77,7 @@ public class PedidoEspera extends ListActivity {
                     setListAdapter(adapter);
 
                 }else {
+                    pd.dismiss();
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                 }
             }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,7 +84,6 @@ public class MenuAtCadastro extends AppCompatActivity implements View.OnClickLis
     }     //aviso para garantir que o usuário não saia acidentalemnte
 
     private void AppConfirma(){
-
         String NewUsuario = ETNewUsuario.getText().toString();
         String Nome = ETNome.getText().toString();
         String NewEmail = ETNewEmail.getText().toString();                 //Recebe os dados inseridos no App
@@ -101,6 +101,10 @@ public class MenuAtCadastro extends AppCompatActivity implements View.OnClickLis
             if(!NewEmail.equals(ConfEmail)){
                 new AlertDialog.Builder(this).setMessage(getString(R.string.EREmailDif)).show();   //Verifica se os dois E-mails são iguais
             }else {
+                final ProgressDialog pd = new ProgressDialog(MenuAtCadastro.this);
+                pd.setMessage(getString(R.string.TXLoading));
+                pd.setCancelable(false);
+                pd.show();
                 ParseUser user = new ParseUser();
                 user.setUsername(NewUsuario);
                 user.setEmail(NewEmail);
@@ -110,9 +114,10 @@ public class MenuAtCadastro extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void done(ParseException e) {
                         if (e==null){
-
+                            pd.dismiss();
                         }else{
                             Toast.makeText(MenuAtCadastro.this, e.getMessage(),Toast.LENGTH_LONG).show();
+                            pd.dismiss();
                         }
                     }
                 });
@@ -122,7 +127,7 @@ public class MenuAtCadastro extends AppCompatActivity implements View.OnClickLis
 
         }
 
-    }     //Verifica os espaços e valida o usuário, ainda não funciona
+    }     //Verifica os espaços e valida o usuário
 
     private void GetDadosUsuario(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -28,6 +29,10 @@ public class GeradorRelatorioCompletoUsuario extends ListActivity {
     }
 
     private void AppGetRelatorioUsuario(String usuarioSelecionado){
+        final ProgressDialog pd = new ProgressDialog(GeradorRelatorioCompletoUsuario.this);
+        pd.setMessage(getString(R.string.TXLoading));
+        pd.setCancelable(false);
+        pd.show();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Pedidos");
         query.whereEqualTo("pedidosUserId",usuarioSelecionado);
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -40,9 +45,10 @@ public class GeradorRelatorioCompletoUsuario extends ListActivity {
                     }
                     ArrayAdapterRelatorioCompleto adapter = new ArrayAdapterRelatorioCompleto(GeradorRelatorioCompletoUsuario.this,listaNomePedidos);
                     setListAdapter(adapter);
-
+                    pd.dismiss();
                 }else {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
         });
