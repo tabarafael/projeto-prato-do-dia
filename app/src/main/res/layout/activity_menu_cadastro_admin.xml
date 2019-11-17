@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".MenuCadastroADMIN"
     android:orientation="vertical"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    android:background="@drawable/customheaderbackground">
     <Button
         android:id="@+id/BT_Modificar_Conta_Admin"
         android:text="@string/TXModConta"

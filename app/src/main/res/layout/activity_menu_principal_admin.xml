@@ -9,7 +9,8 @@
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/customheaderbackground">
 
         <Button
             android:id="@+id/BT_Adicionar_Prato_Admin"
@@ -21,8 +22,7 @@
             android:typeface="sans"
             android:textColor="@color/colorButtonText"
             android:textSize="25sp"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginBottom="25dp"/>
         <Button
             android:id="@+id/BT_Cardapio_Dia_Admin"
             android:text="@string/BTCardapioDoDia"

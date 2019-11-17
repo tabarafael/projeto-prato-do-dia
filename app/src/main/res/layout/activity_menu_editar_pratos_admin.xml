@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".MenuEditarPratosADMIN"
     android:orientation="vertical"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    android:background="@drawable/customheaderbackground">
     <Button
         android:id="@+id/BT_Edit_Adicionar"
         android:text="@string/BTAdd_Prato"

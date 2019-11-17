@@ -13,10 +13,12 @@
         android:layout_margin="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TXCheckout"
-            android:textSize="35sp"/>
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:background="@drawable/customheaderbackground"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
@@ -32,7 +34,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/customheaderbackground">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="2dp"
                     android:textSize="22sp"
-                    android:text="@string/TVQuantidade"/>
+                    android:text="@string/TVQuantidade"
+                    android:paddingLeft="10dp"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,31 +77,33 @@
                     android:layout_height="wrap_content"
                     android:textSize="22sp"/>
             </LinearLayout>
-        </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
-            <EditText
-                android:id="@+id/ET_Checkout_Observacao"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:typeface="sans"
-                android:background="@drawable/customedittextbackground"
-                android:gravity="bottom|center_horizontal"
-                android:lines="5"
-                android:maxLines="5"
-                android:minLines="5"
-                android:hint="@string/TXHint"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TXObservacao"
-                android:textSize="22sp"/>
-        </RelativeLayout>
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp">
+                <EditText
+                    android:id="@+id/ET_Checkout_Observacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:typeface="sans"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:lines="5"
+                    android:maxLines="5"
+                    android:minLines="5"
+                    android:hint="@string/TXHint"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TXObservacao"
+                    android:textSize="22sp"
+                    android:paddingLeft="10dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
         <Button
             android:id="@+id/BT_Final_Checkout"
             android:textSize="22sp"

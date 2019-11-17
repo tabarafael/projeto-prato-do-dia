@@ -13,27 +13,42 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_custom_prato"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_custom_prato_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuPermissaoADMIN"></activity>
-        <activity android:name=".MenuAtCadastro" />
-        <activity android:name=".GeradorRelatorioCompletoUsuario" />
-        <activity android:name=".GeradorRelatorioCompletoPratos" />
+        <activity
+            android:name=".MenuPermissaoADMIN"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MenuAtCadastro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GeradorRelatorioCompletoUsuario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GeradorRelatorioCompletoPratos"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GeradorRelatorioPratos"
             android:label="@string/title_activity_gerador_relatorio_pratos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GeradorRelatorioUsuario"
             android:label="@string/title_activity_gerador_relatorio_usuario"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditarEditorPratosADMIN" />
-        <activity android:name=".EditarRemoverPratosADMIN" />
-        <activity android:name=".EditarModificarPratosADMIN" />
-        <activity android:name=".MenuEditarPratosADMIN" />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditarEditorPratosADMIN"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditarRemoverPratosADMIN"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditarModificarPratosADMIN"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MenuEditarPratosADMIN"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PedidoDescricao"
             android:screenOrientation="portrait" />
