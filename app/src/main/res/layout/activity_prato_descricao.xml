@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -44,26 +44,36 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/TXLoading"/>
+                    android:text="@string/TXLoading"
+                    android:background="@drawable/customedittextbackground"
+                    android:layout_marginBottom="5dp"/>
                 <TextView
                     android:id="@+id/TV_Texto_Descricao"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/TXLoading"/>
+                    android:text="@string/TXLoading"
+                    android:background="@drawable/customedittextbackground"
+                    android:layout_marginBottom="5dp"/>
                 <TextView
                     android:id="@+id/TV_Ingrediente_Descricao"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/TXLoading"/>
+                    android:text="@string/TXLoading"
+                    android:background="@drawable/customedittextbackground"
+                    android:layout_marginBottom="5dp"/>
             </LinearLayout>
         </ScrollView>
         <Button
             android:id="@+id/BT_Prato_Checkout"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:textSize="22sp"
-            android:text="@string/BTPedido"/>
+            android:text="@string/BTPedido"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"/>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

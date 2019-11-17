@@ -10,16 +10,33 @@
         android:id="@+id/BT_Iniciar_Pedido"
         android:text="@string/BTIniciar"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Concluido_Pedido"
         android:text="@string/BTPronto"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Cancelar_Pedido"
         android:text="@string/TVCancelar"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp" />
 
 </LinearLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Restaurante</string>
+    <string name="app_name">Restaurante Fransisco</string>
     <string name="TVNomeRestaurante">Restaurante Francisco</string>
     <string name="TVUsuario">Usuário:</string>
     <string name="TVSenha">Senha:</string>
@@ -37,7 +37,6 @@
     <string name="TXSab">Sábado</string>
     <string name="title_activity_menu_semana">MenuSemana</string>
     <string name="TXDia">Pratos do dia</string>
-    <string name="TXLipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt arcu neque, ac faucibus lacus ultrices eget. Nam in lobortis magna, at imperdiet neque. Morbi mollis gravida hendrerit. Etiam tempor nulla blandit ipsum venenatis, vel feugiat massa tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam ut orci dolor. Phasellus et sodales metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae orci sapien. Aliquam aliquam, massa eget volutpat suscipit, tellus enim eleifend tellus, ac luctus odio mauris quis ex. Suspendisse lorem purus, venenatis ut elit non, commodo porta elit. Sed sed pharetra nibh. Sed vel libero ornare, consectetur velit non, vehicula turpis. Suspendisse tempus ex tortor, vitae iaculis metus sodales quis. Nulla facilisi. Proin vitae enim massa. </string>
     <string name="TXClient">Clientes</string>
     <string name="TXAdmin">Administradores</string>
     <string name="TXAviso1">View exclusiva para Admins, padrão agora para testes</string>

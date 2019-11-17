@@ -1,40 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuPrincipalADMIN"
-    android:layout_margin="16dp"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/BT_Adicionar_Prato_Admin"
             android:text="@string/BTEdit_Prato"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"/>
         <Button
             android:id="@+id/BT_Cardapio_Dia_Admin"
             android:text="@string/BTCardapioDoDia"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp"/>
         <Button
             android:id="@+id/BT_Cardapio_Semana_Admin"
             android:text="@string/BTCardapioSemanal"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp" />
         <Button
             android:id="@+id/BT_Pedidos_Admin"
             android:text="@string/BTMeusPedidosAdmin"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp" />
         <Button
             android:id="@+id/BT_Alt_Cadastro_Admin"
             android:text="@string/BTAlterarCadastroAdmin"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp" />
         <Button
             android:id="@+id/BT_Relatorios_Admin"
             android:text="@string/BTRelatorioAdmin"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:layout_marginBottom="25dp" />
+
+
+
     </LinearLayout>
+
+
+
+
+    </ScrollView>

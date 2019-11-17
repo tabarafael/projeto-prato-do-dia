@@ -27,39 +27,51 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_margin="25dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVUsuario"
-            android:textSize="35sp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp"/>
-
-        <EditText
-            android:id="@+id/ET_Usuario"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:singleLine="true"/>
+            android:layout_marginBottom="10dp">
+            <EditText
+                android:id="@+id/ET_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:singleLine="true"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVSenha"
-            android:textSize="35sp"
-            android:layout_marginLeft="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVUsuario"
+                android:textSize="35sp"
+                android:paddingLeft="10dp"/>
 
-        <EditText
-            android:id="@+id/ET_Senha"
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ET_Senha"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:inputType="textPassword"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVSenha"
+                android:textSize="35sp"
+                android:paddingLeft="10dp"/>
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -75,22 +87,34 @@
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:text="@string/BTEntrar"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"/>
 
         <Button
             android:id="@+id/BT_Cadastro"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:text="@string/BTCadastro"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"/>
 
         <Button
             android:id="@+id/BT_Recuperar_Senha"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/BTRecuperarSenha"
-            android:textSize="15sp"
-            android:layout_marginTop="30dp"/>
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"/>
 
 </LinearLayout>
 

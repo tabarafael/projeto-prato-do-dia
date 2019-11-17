@@ -10,20 +10,43 @@
         android:id="@+id/BT_Pedidos_Espera"
         android:text="@string/TXPedidoEspera"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Pedidos_Andamento"
         android:text="@string/TXPedidoAndamento"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Pedidos_Concluido"
         android:text="@string/TXPedidoConcluido"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Pedidos_Cancelado"
         android:text="@string/TXPedidoCancelado"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp" />
 </LinearLayout>

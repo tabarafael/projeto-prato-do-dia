@@ -7,38 +7,72 @@
     tools:context=".MenuPermissaoADMIN"
     android:orientation="vertical"
     android:layout_margin="16dp">
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="@string/TXPermADMIN"/>
-    <EditText
-        android:id="@+id/ET_Usuario_Modificar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
+        android:layout_marginBottom="5dp">
+        <EditText
+            android:id="@+id/ET_Usuario_Modificar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:singleLine="true"
+            android:typeface="sans"
+            android:background="@drawable/customedittextbackground"
+            android:gravity="bottom|center_horizontal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="@string/TXPermADMIN"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="@string/TXPermSenhaADMIN"/>
-    <EditText
-        android:id="@+id/ET_Usuario_Senha_Modificar"
+        android:layout_marginBottom="5dp">
+
+        <EditText
+            android:id="@+id/ET_Usuario_Senha_Modificar"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:singleLine="true"
+            android:typeface="sans"
+            android:background="@drawable/customedittextbackground"
+            android:gravity="bottom|center_horizontal"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="@string/TXPermSenhaADMIN"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="@string/TXPermNivel"/>
-    <Spinner
-        android:id="@+id/SpinnerAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_gravity="bottom">
+
+        <Spinner
+            android:id="@+id/SpinnerAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="@drawable/customedittextbackground"
+            android:paddingTop="50dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="@string/TXPermNivel"/>
+    </RelativeLayout>
     <Button
         android:id="@+id/BT_Confirma"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="@string/BTconfirmar"/>
+        android:text="@string/BTconfirmar"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"/>
 
 </LinearLayout>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PratoCheckout"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,26 +33,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+                <EditText
+                    android:id="@+id/ET_Quantidade_pedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:singleLine="true"
+                    android:typeface="sans"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:inputType="number"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="2dp"
                     android:textSize="22sp"
                     android:text="@string/TVQuantidade"/>
-                <EditText
-                    android:id="@+id/ET_Quantidade_pedido"
-                    android:layout_width="175dp"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"/>
-            </LinearLayout>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/customedittextbackground"
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:id="@+id/TV_Valor_Total_Checkout"
                     android:layout_width="wrap_content"
@@ -68,29 +74,39 @@
                     android:textSize="22sp"/>
             </LinearLayout>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TXObservacao"
-            android:textSize="22sp"/>
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border">
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
             <EditText
                 android:id="@+id/ET_Checkout_Observacao"
-                android:gravity="top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:typeface="sans"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"
                 android:lines="5"
                 android:maxLines="5"
+                android:minLines="5"
                 android:hint="@string/TXHint"/>
-        </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TXObservacao"
+                android:textSize="22sp"/>
+        </RelativeLayout>
         <Button
             android:id="@+id/BT_Final_Checkout"
             android:textSize="22sp"
             android:text="@string/BTconfirmar"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

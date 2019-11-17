@@ -22,51 +22,90 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVUsuario"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_New_Usuario"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVNome"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_Nome"
+            android:layout_marginBottom="5dp">
+            <EditText
+                android:id="@+id/ET_New_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:singleLine="true"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVUsuario"
+                android:textSize="22sp"
+                android:typeface="sans"/>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVEmail"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_New_Email"
+            android:layout_marginBottom="5dp">
+            <EditText
+                android:id="@+id/ET_Nome"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:singleLine="true"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVNome"
+                android:textSize="22sp"
+                android:typeface="sans"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVConfEmail"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_Conf_Email"
+            android:layout_marginBottom="5dp">
+            <EditText
+                android:id="@+id/ET_New_Email"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:singleLine="true"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVEmail"
+                android:textSize="22sp"
+                android:typeface="sans"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
+            android:layout_marginBottom="5dp">
+            <EditText
+                android:id="@+id/ET_Conf_Email"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:singleLine="true"
+                android:background="@drawable/customedittextbackground"
+                android:gravity="bottom|center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TVConfEmail"
+                android:textSize="22sp"
+                android:typeface="sans"/>
+        </RelativeLayout>
+
         <Button
             android:id="@+id/BT_Modificar_Senha"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:text="@string/TXModSenha"/>
+            android:text="@string/TXModSenha"
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -79,12 +118,20 @@
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="@string/TVCancelar"
-            android:textSize="20sp"/>
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"/>
         <Button
             android:id="@+id/BT_Confirma"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="@string/TVConcluir"
-            android:textSize="20sp"/>
+            android:background="@drawable/custombutton"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"/>
     </LinearLayout>
 </LinearLayout>

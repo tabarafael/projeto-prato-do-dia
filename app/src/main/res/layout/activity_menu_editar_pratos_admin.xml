@@ -10,16 +10,33 @@
         android:id="@+id/BT_Edit_Adicionar"
         android:text="@string/BTAdd_Prato"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Edit_Editar"
         android:text="@string/BTEdit_Prato"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Edit_Remover"
         android:text="@string/BTRemover_Prato"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"/>
 
 </LinearLayout>

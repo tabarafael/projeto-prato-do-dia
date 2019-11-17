@@ -10,10 +10,21 @@
         android:id="@+id/BT_Modificar_Conta_Admin"
         android:text="@string/TXModConta"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Modificar_Clientes"
         android:text="@string/TXModContaOutras"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp" />
 </LinearLayout>

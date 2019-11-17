@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }            //Verifica o botão selecionado
 
     private void AppEntrar(){
-        ProgressDialog pd = new ProgressDialog(MainActivity.this);
+        final ProgressDialog pd = new ProgressDialog(MainActivity.this);
         pd.setMessage(getString(R.string.TXLoading));
         pd.setCancelable(false);
         pd.show();
@@ -87,8 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(TextUtils.isEmpty(usuario)) {
             ETusuario.setError(getString(R.string.ERUserVazio));
+            pd.dismiss();
         }else if (TextUtils.isEmpty(senha)){
             ETsenha.setError(getString(R.string.ERSenhaVazio));
+            pd.dismiss();
         }else{
             ParseUser.logInInBackground(usuario,senha, new LogInCallback() {
                 @Override
@@ -100,16 +102,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                    @Override
                                    public void onClick(DialogInterface dialogInterface, int i) {
-
+                                            pd.dismiss();
                                              AppIniciaMenu();
-
-
-
                                    }
                                }).show();
                     } else {
                         ParseUser.logOut();
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        pd.dismiss();
                     }
                 }
             });

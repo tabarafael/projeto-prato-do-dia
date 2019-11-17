@@ -1,107 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MenuCadastro"
-    android:orientation="vertical"
-    android:padding="16dp">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TXCadastro"
-            android:textSize="35sp"/>
-    </LinearLayout>
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:orientation="vertical">
-        <TextView
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVUsuario"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_New_Usuario"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TXCadastro"
+                android:textSize="35sp"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <EditText
+                    android:id="@+id/ET_New_Usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:singleLine="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVUsuario"
+                    android:textSize="22sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <EditText
+                    android:id="@+id/ET_Nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVNome"
+                    android:textSize="22sp"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <EditText
+                    android:id="@+id/ET_New_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:singleLine="true"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVEmail"
+                    android:textSize="22sp"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <EditText
+                    android:id="@+id/ET_Conf_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:singleLine="true"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVConfEmail"
+                    android:textSize="22sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <EditText
+                    android:id="@+id/ET_New_Senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:singleLine="true"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:inputType="textPassword"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVSenha"
+                    android:textSize="22sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <EditText
+                    android:id="@+id/ET_Conf_Senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:singleLine="true"
+                    android:background="@drawable/customedittextbackground"
+                    android:gravity="bottom|center_horizontal"
+                    android:inputType="textPassword"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TVConfSenha"
+                    android:textSize="22sp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/TVNome"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_Nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVEmail"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_New_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVConfEmail"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_Conf_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVSenha"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_New_Senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:singleLine="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TVConfSenha"
-            android:textSize="22sp"/>
-        <EditText
-            android:id="@+id/ET_Conf_Senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:singleLine="true"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp">
+            <Button
+                android:id="@+id/BT_Cancela"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:text="@string/TVCancelar"
+                android:background="@drawable/custombutton"
+                android:textAllCaps="false"
+                android:typeface="sans"
+                android:textColor="@color/colorButtonText"
+                android:textSize="25sp"/>
+
+            <Button
+                android:id="@+id/BT_Confirma"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:background="@drawable/custombutton"
+                android:text="@string/TVConcluir"
+                android:textAllCaps="false"
+                android:textColor="@color/colorButtonText"
+                android:textSize="25sp"
+                android:typeface="sans" />
+        </LinearLayout>
+
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp">
-        <Button
-            android:id="@+id/BT_Cancela"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:text="@string/TVCancelar"
-            android:textSize="20sp"/>
-        <Button
-            android:id="@+id/BT_Confirma"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:text="@string/TVConcluir"
-            android:textSize="20sp"/>
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

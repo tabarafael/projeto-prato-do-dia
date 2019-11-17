@@ -15,11 +15,22 @@
         android:id="@+id/BT_Relatorio_Usuario"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Usuários"/>
+        android:text="Usuários"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"/>
     <Button
         android:id="@+id/BT_Relatorio_Prato"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Pratos"/>
+        android:text="Pratos"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp"/>
 
 </LinearLayout>

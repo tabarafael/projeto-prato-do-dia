@@ -12,21 +12,44 @@
             android:id="@+id/BT_Cardapio_Dia"
             android:text="@string/BTCardapioDoDia"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:background="@drawable/custombutton"
+            android:layout_marginBottom="25dp"/>
         <Button
             android:id="@+id/BT_Cardapio_Semana"
             android:text="@string/BTCardapioSemanal"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:background="@drawable/custombutton"
+            android:layout_marginBottom="25dp"/>
         <Button
             android:id="@+id/BT_Pedidos"
             android:text="@string/BTMeusPedidos"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:background="@drawable/custombutton"
+            android:layout_marginBottom="25dp" />
         <Button
             android:id="@+id/BT_Alt_Cadastro"
             android:text="@string/BTAlterarCadastro"
             android:layout_width="match_parent"
-            android:layout_height="75dp" />
+            android:layout_height="75dp"
+            android:textAllCaps="false"
+            android:typeface="sans"
+            android:textColor="@color/colorButtonText"
+            android:textSize="25sp"
+            android:background="@drawable/custombutton" />
 
     </LinearLayout>

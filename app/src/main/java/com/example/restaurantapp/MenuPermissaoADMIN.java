@@ -37,7 +37,7 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_menu_permissao_admin);
 
         spinner = findViewById(R.id.SpinnerAdmin);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.SANivelADMIN, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.SANivelADMIN, R.layout.layoutspinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         BTConfirma = findViewById(R.id.BT_Confirma);

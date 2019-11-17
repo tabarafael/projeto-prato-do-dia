@@ -7,24 +7,38 @@
     tools:context=".MenuSenha"
     android:layout_margin="16dp"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+        <EditText
+            android:id="@+id/ET_Recupera_Email"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:singleLine="true"
+            android:typeface="sans"
+            android:background="@drawable/customedittextbackground"
+            android:gravity="bottom|center_horizontal"/>
+        <TextView
+            android:text="@string/TXEmailForgot"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="sans"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/TXEmailForgot"
-        android:textSize="22sp"/>
-    <EditText
-        android:id="@+id/ET_Recupera_Email"
-        android:layout_marginTop="25dp"
-        android:hint="@string/TVEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true" />
+    </RelativeLayout>
+
     <Button
         android:id="@+id/BT_Recuperar_Confirma"
         android:layout_marginTop="75dp"
         android:text="@string/BTconfirmar"
         android:layout_width="match_parent"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:background="@drawable/custombutton"
+        android:textAllCaps="false"
+        android:typeface="sans"
+        android:textColor="@color/colorButtonText"
+        android:textSize="25sp" />
 
 </LinearLayout>
