@@ -11,6 +11,8 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+/* o serviço deste array adapter é inflar a lista de pedidos, receber os dados do servidor e exibir corretamente*/
+
 public class ArrayAdapterPedidos extends ArrayAdapter<String> {
     private final Context context;
     private final String[] values;
@@ -22,14 +24,13 @@ public class ArrayAdapterPedidos extends ArrayAdapter<String> {
     }
 
     @Override
-
     public View getView (final int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_layout_pedidos, parent, false);
-        final TextView textViewNome = (TextView) rowView.findViewById(R.id.TV_RowLabel_pedidos);
-        final TextView textViewQuantidade = (TextView) rowView.findViewById(R.id.TV_Quantidade_Pedidos);
-        final TextView textViewDescricao = (TextView) rowView.findViewById(R.id.TV_Descricao_Pedidos);
+        final TextView textViewNome =  rowView.findViewById(R.id.TV_RowLabel_pedidos);
+        final TextView textViewQuantidade = rowView.findViewById(R.id.TV_Quantidade_Pedidos);
+        final TextView textViewDescricao = rowView.findViewById(R.id.TV_Descricao_Pedidos);
 
 
         ParseQuery<ParseObject> query = new ParseQuery<>("Pedidos");

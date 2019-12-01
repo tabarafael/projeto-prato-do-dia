@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**Disponibiliza as opções para adicionar, editar ou remover pratos*/
+
 public class MenuEditarPratosADMIN extends AppCompatActivity implements View.OnClickListener{
 
     private boolean ValorNivelContaUsuario;
@@ -46,17 +48,17 @@ public class MenuEditarPratosADMIN extends AppCompatActivity implements View.OnC
         Intent intent = new Intent(this, MenuAdicionarPratoADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
-    }
+    }  //Abre activity de adicionar pratos
 
     private void AppAbrirEdit(){
         Intent intent = new Intent(this, EditarModificarPratosADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
-    }
+    }   //abre activiity de editar pratos
 
     private void AppAbrirRemove(){
         Intent intent = new Intent(this, EditarRemoverPratosADMIN.class);
         intent.putExtra("NivelConta", ValorNivelContaUsuario);
         startActivity(intent);
-    }
+    }  //abre activity de remover pratos
 }

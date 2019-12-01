@@ -14,6 +14,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import java.util.List;
 
+/*Classe para visualizar os pratos a serem editados*/
+
 public class EditarModificarPratosADMIN extends ListActivity {
 
     private boolean ValorNivelContaUsuario;
@@ -36,7 +38,7 @@ public class EditarModificarPratosADMIN extends ListActivity {
         overridePendingTransition(0, 0);
         startActivity(getIntent());
         overridePendingTransition(0, 0);
-    }
+    }  /*Reconstrução da activity para atualizar a lista*/
     @Override
     protected void onListItemClick(ListView listview, View view, int position, long id){
         String item = (String) getListAdapter().getItem(position);
@@ -45,7 +47,7 @@ public class EditarModificarPratosADMIN extends ListActivity {
         intent.putExtra("PratoSelecionado",item);
         startActivity(intent);
 
-    }
+    } /*Verifica qual item foi selecionado da lista*/
 
     private void AppGetListaPratos(){
         final ProgressDialog pd = new ProgressDialog(EditarModificarPratosADMIN.this);
@@ -70,5 +72,5 @@ public class EditarModificarPratosADMIN extends ListActivity {
                 }
             }
         });
-    }
+    }   /*Carrega a lista de pratos*/
 }

@@ -3,7 +3,6 @@ package com.example.restaurantapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,16 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
-
 import java.util.List;
+
+/**Menu para a atualização de cadastros já criados, baixa os daddos salvos e se modificados, atualiza no servidor*/
 
 public class MenuAtCadastro extends AppCompatActivity implements View.OnClickListener{
 
@@ -142,10 +140,10 @@ public class MenuAtCadastro extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-    }
+    }  //Baixa os dados do servidor e insere nos edittext
 
     private void AppModSenha(){
         Intent intent = new Intent(MenuAtCadastro.this,MenuSenha.class);
         startActivity(intent);
-    }
+    } //Redireciona para a activity de recuperar senha
 }

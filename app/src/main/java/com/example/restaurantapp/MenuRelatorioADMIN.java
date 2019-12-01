@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+/**Redireciona o tipo de relatorio que deseja ser visualizado*/
+
 public class MenuRelatorioADMIN extends AppCompatActivity implements View.OnClickListener{
     private Button BTCliente;
     private Button BTPrato;
@@ -29,12 +32,14 @@ public class MenuRelatorioADMIN extends AppCompatActivity implements View.OnClic
             AppPrato();
         }
     }
+
     private void AppCliente(){
         Intent intent = new Intent(this,GeradorRelatorioUsuario.class);
         startActivity(intent);
-    }
+    }  /*Abre o relatório de clientes*/
+
     private void AppPrato(){
         Intent intent = new Intent(this,GeradorRelatorioPratos.class);
         startActivity(intent);
-    }
+    }  /*Abre o relatório de pratos*/
 }

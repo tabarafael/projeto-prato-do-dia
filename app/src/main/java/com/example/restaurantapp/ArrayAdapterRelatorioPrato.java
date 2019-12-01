@@ -6,15 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 import java.util.List;
+
+/* o serviço deste array adapter é inflar a lista de todos os pratos salvos no servidor*/
 
 public class ArrayAdapterRelatorioPrato extends ArrayAdapter<String> {
     private final Context context;
@@ -26,13 +24,12 @@ public class ArrayAdapterRelatorioPrato extends ArrayAdapter<String> {
     }
 
     @Override
-
     public View getView (final int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_layout_relatorio_prato, parent, false);
-        final TextView textViewNome = (TextView) rowView.findViewById(R.id.TV_RowLabel_Nome);
-        final TextView textViewQuantidade = (TextView) rowView.findViewById(R.id.TV_Relatorio_Quantidade);
+        final TextView textViewNome = rowView.findViewById(R.id.TV_RowLabel_Nome);
+        final TextView textViewQuantidade = rowView.findViewById(R.id.TV_Relatorio_Quantidade);
         final TextView textViewQuantidadePratos = rowView.findViewById(R.id.TV_Relatorio_Quantidade_Pratos);
         final TextView textViewValorTotal = rowView.findViewById(R.id.TV_Relatorio_Valor_Total);
 

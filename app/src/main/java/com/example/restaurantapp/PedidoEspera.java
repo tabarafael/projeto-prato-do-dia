@@ -1,6 +1,5 @@
 package com.example.restaurantapp;
 
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,8 +13,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-
 import java.util.List;
+
+/**Cria uma lista com todos os pedidos que se encaixam no filtro selecionado anteriormente*/
 
 public class PedidoEspera extends ListActivity {
 
@@ -50,7 +50,7 @@ public class PedidoEspera extends ListActivity {
             intent.putExtra("ValorSituacao", valorFiltro);
             startActivity(intent);
         }
-    }
+    }  /*Manipula o item selecionado na lista e abre a próxima acitivity*/
 
     private void AppGetListaPratos(String valorFiltro){
         final ProgressDialog pd = new ProgressDialog(PedidoEspera.this);
@@ -82,6 +82,6 @@ public class PedidoEspera extends ListActivity {
                 }
             }
         });
-    }
+    }  /*Baixa a lista de pratos do servidor e infla lista*/
 
 }

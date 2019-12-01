@@ -6,11 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+
+/* o serviço deste array adapter é inflar a lista de edição de pratos, listando todos para serem modificados , receber os dados do servidor e exibir corretamente*/
 
 public class ArrayAdapterEditorPratos extends ArrayAdapter<String> {
     private final Context context;
@@ -23,16 +25,13 @@ public class ArrayAdapterEditorPratos extends ArrayAdapter<String> {
     }
 
     @Override
-
     public View getView (final int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_layout_pedidos, parent, false);
-        final TextView textViewNome = (TextView) rowView.findViewById(R.id.TV_RowLabel_pedidos);
-        final TextView textViewQuantidade = (TextView) rowView.findViewById(R.id.TV_Quantidade_Pedidos);
-        final TextView textViewDescricao = (TextView) rowView.findViewById(R.id.TV_Descricao_Pedidos);
-
-
+        final TextView textViewNome = rowView.findViewById(R.id.TV_RowLabel_pedidos);
+        final TextView textViewQuantidade = rowView.findViewById(R.id.TV_Quantidade_Pedidos);
+        final TextView textViewDescricao = rowView.findViewById(R.id.TV_Descricao_Pedidos);
         ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("objectId", values[position]);
         query.getFirstInBackground(new GetCallback<ParseObject>() {

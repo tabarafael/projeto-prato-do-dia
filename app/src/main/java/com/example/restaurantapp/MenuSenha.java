@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.parse.ParseUser;
 
+/**Activity para o envio do email para recuperação de senha*/
+
 public class MenuSenha extends AppCompatActivity implements View.OnClickListener{
 
     private EditText ETEmail;
@@ -28,7 +30,7 @@ public class MenuSenha extends AppCompatActivity implements View.OnClickListener
         if (view == BTConfirma){
             AppConfirma();
         }
-    }
+    }  /*Manipula o botão de confirmar*/
 
     private void AppConfirma(){
         String Email = ETEmail.getText().toString();
@@ -37,7 +39,7 @@ public class MenuSenha extends AppCompatActivity implements View.OnClickListener
         }else{
             ParseUser.requestPasswordResetInBackground(Email);
             }
-        }
+        }  /*Ativa o processo de recuperação de senha*/
 
     }
 

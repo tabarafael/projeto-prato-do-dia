@@ -1,7 +1,6 @@
 package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -21,8 +19,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
 import java.util.List;
+
+/**Esta activity serve para um administrador conceder ou remover os privilégios de administrador a outros usuários*/
 
 public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClickListener{
 
@@ -145,12 +144,12 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
             });
 
         }
-    }
+    }  //Salva os dados e altera no servidor o nivel de permissão.
 
     private void AppLimpar(){
         ETSenha.setText("");
         ETUsuario.setText("");
         spinner.setSelection(0);
-    }
+    } //Limpa os edittext e spinner
 
 }

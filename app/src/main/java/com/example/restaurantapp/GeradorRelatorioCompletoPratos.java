@@ -11,6 +11,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import java.util.List;
 
+/*Cria uma lista completa de pedidos de acordo com o prato selecionado*/
+
 public class GeradorRelatorioCompletoPratos extends ListActivity {
 
 
@@ -46,6 +48,6 @@ public class GeradorRelatorioCompletoPratos extends ListActivity {
                 }
             }
         });
-    }
+    } /*baixa a todos os dados dos pedidos e infla a lista*/
 
 }

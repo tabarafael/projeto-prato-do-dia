@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
@@ -27,6 +26,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+/**Activity para a criação de pedidos*/
 
 public class PratoCheckout extends AppCompatActivity implements View.OnClickListener {
 
@@ -81,6 +82,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
     private void InserirImagem(String pratoSelecionado){
         final ProgressDialog pd = new ProgressDialog(PratoCheckout.this);
         pd.setMessage(getString(R.string.TXLoading));
@@ -111,7 +113,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
-    }
+    }  /*Recebe a imagem do servidor e insere no ImageView*/
 
     private void InserirQuantidadeCheckout(final double valorPrecoPrato){
 
@@ -137,7 +139,7 @@ public class PratoCheckout extends AppCompatActivity implements View.OnClickList
                 return handled;
             }
         });
-    }
+    }  /*Atualiza dinamicamente o preço do prato de acordo com a quantidade inserida*/
 
     @Override
     public void onClick(View view){

@@ -9,14 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 import java.util.List;
+
+/*Activity cria lista de pratos para excluir qual for selecionado*/
 
 public class EditarRemoverPratosADMIN extends ListActivity {
 
@@ -25,9 +25,7 @@ public class EditarRemoverPratosADMIN extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_remover_pratos_admin);
-
         Intent intent = getIntent();
-        boolean ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
         AppGetListaPratos();
     }
 
@@ -56,8 +54,6 @@ public class EditarRemoverPratosADMIN extends ListActivity {
                                     try{
                                         objetoInterno.delete();
                                         objetoInterno.saveInBackground();
-
-
                                         new AlertDialog.Builder(EditarRemoverPratosADMIN.this)
                                                 .setTitle("Excluído com sucesso")
                                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -73,19 +69,14 @@ public class EditarRemoverPratosADMIN extends ListActivity {
                                     }catch (Exception f){
                                         Toast.makeText(EditarRemoverPratosADMIN.this,f.getMessage(),Toast.LENGTH_LONG).show();
                                     }
-
                                 }
                             }).show();
-
-
                 }else{
                     Toast.makeText(EditarRemoverPratosADMIN.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
-    }
+    } /*Quando selecionado item da lista, dispara um pedido de exclusão do servidor.*/
 
     private void AppGetListaPratos(){
         final ProgressDialog pd = new ProgressDialog(EditarRemoverPratosADMIN.this);
@@ -110,5 +101,5 @@ public class EditarRemoverPratosADMIN extends ListActivity {
                 }
             }
         });
-    }
+    } /*Carrega lista de pratos do servidor e dispõe na lista*/
 }

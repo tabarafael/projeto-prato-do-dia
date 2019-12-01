@@ -1,26 +1,20 @@
 package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.parse.FunctionCallback;
 import com.parse.GetCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
-
-import java.util.ArrayList;
 import java.util.HashMap;
+/**Activity utilizada por adminstradores para atualizar o status de pedidos*/
 
 public class PedidoDescricao extends AppCompatActivity implements View.OnClickListener {
 
@@ -100,7 +94,7 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-    }
+    }  /*Salva o novo status do pedido no servidor*/
 
     private void AppLimparBotoes(String valorStatus){
         if(valorStatus.equals(valorIniciado)){
@@ -116,7 +110,7 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
         }else if (valorStatus.equals(valorSituacao)){
             BTProntoPedido.setVisibility(View.GONE);
         }
-    }
+    }   /*Esconde os botões que não podem ser selecionados no momento*/
 
     private void FazerNotificacaoPronto(){
         Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
@@ -133,7 +127,8 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-    }
+    } /*Ativa o cloud code para enviar notificação de pronto para o dono do pedido*/
+
     private void FazerNotificacaoInicio(){
         Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
 
@@ -150,7 +145,8 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-    }
+    } /*Ativa o cloud code para enviar notificação de Iniciado para o dono do pedido*/
+
     private void FazerNotificacaoCancelado(){
         Toast.makeText(this, usuarioPedido, Toast.LENGTH_LONG).show();
 
@@ -167,9 +163,7 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-    }
-
-
+    } /*Ativa o cloud code para enviar notificação de Cancelado para o dono do pedido*/
 
     private void GetPedidoUser(String PratoID){
                 ParseQuery<ParseObject> query = new ParseQuery<>("Pedidos");
@@ -184,5 +178,5 @@ public class PedidoDescricao extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-    }
+    } /*verifica o dono do pedido*/
 }

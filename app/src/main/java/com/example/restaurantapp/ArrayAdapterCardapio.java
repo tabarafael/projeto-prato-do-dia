@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
@@ -18,6 +17,8 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+
+/* o serviço deste array adapter é inflar a lista do cardápio do dia, receber os dados do servidor e exibir corretamente*/
 
 public class ArrayAdapterCardapio extends ArrayAdapter<String> {
     private final Context context;
@@ -30,13 +31,12 @@ public class ArrayAdapterCardapio extends ArrayAdapter<String> {
     }
 
     @Override
-
     public View getView (final int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_layout_cardapio, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.TV_RowLabel_cardapio);
-        final ImageView imageview = (ImageView)  rowView.findViewById(R.id.IV_RowImage_cardapio);
+        TextView textView = rowView.findViewById(R.id.TV_RowLabel_cardapio);
+        final ImageView imageview = rowView.findViewById(R.id.IV_RowImage_cardapio);
 
         ParseQuery<ParseObject> query = new ParseQuery<>("Pratos");
         query.whereEqualTo("PratoNome", values[position]);

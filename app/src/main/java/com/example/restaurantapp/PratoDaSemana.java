@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**Acitvity lista os dias da semana para usuários poderem verificar outros dias além do dia presente*/
 public class PratoDaSemana extends AppCompatActivity implements View.OnClickListener{
 
     private Button BTPSDom;

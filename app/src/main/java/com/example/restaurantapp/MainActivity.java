@@ -12,20 +12,18 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-
-
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
-
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+/**Main activity, primeira a abrir quando a aplicação é iniciada, utilizada para fazer login ou acessar a criação de contas**/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -115,17 +113,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
 
         }
-    }
+    }                /*Efetua o login*/
 
     private void AppCadastro(){
         Intent intent = new Intent(this, MenuCadastro.class);
         startActivity(intent);
-    }          //Redireciona para criar um cadastro, **Em construção
+    }          //Redireciona para criar um cadastro
 
     private void AppRecuperar(){
         Intent intent = new Intent(this, MenuSenha.class);
         startActivity(intent);
-    }          //Redireciona para recuperar senha  **Em construção
+    }          //Redireciona para recuperar senha
 
     private void AppIniciaMenu(){
 

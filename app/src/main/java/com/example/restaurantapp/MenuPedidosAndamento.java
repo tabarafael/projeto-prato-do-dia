@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**Abre menu de opções de filtros para verificar os pedidos criados*/
+
 public class MenuPedidosAndamento extends AppCompatActivity implements View.OnClickListener {
 
     private Button BTEspera;
@@ -51,5 +53,5 @@ public class MenuPedidosAndamento extends AppCompatActivity implements View.OnCl
         intent.putExtra("NivelConta",ValorNivelContaUsuario);
         intent.putExtra("ValorFiltro", filtro);
         startActivity(intent);
-    }
+    }  //abre próxima activity informando o filtro aqui selecionado
 }

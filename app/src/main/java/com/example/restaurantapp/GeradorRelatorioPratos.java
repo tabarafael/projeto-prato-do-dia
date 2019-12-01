@@ -4,26 +4,19 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+/**Lista todos os pratos salvos no servidor**/
 public class GeradorRelatorioPratos extends ListActivity{
 
     @Override
@@ -32,13 +25,15 @@ public class GeradorRelatorioPratos extends ListActivity{
         setContentView(R.layout.activity_gerador_relatorio_pratos);
         AppGetListaPratos();
     }
+
     protected void onListItemClick(ListView listview, View view, int position, long id){
         String item = (String) getListAdapter().getItem(position);
         Intent intent = new Intent(GeradorRelatorioPratos.this,GeradorRelatorioCompletoPratos.class);
         intent.putExtra("pratoSelecionado",item);
         startActivity(intent);
 
-    }
+    } /**Abre o relatório completo de acordo com o item que aqui foi selecionado**/
+
     private void AppGetListaPratos(){
         final ProgressDialog pd = new ProgressDialog(GeradorRelatorioPratos.this);
         pd.setMessage(getString(R.string.TXLoading));
@@ -65,5 +60,5 @@ public class GeradorRelatorioPratos extends ListActivity{
                 }
             }
         });
-    }
+    }  /**baixa a lista com o nome de todos os pratos e infla lista**/
 }

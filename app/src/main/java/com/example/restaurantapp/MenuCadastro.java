@@ -1,7 +1,6 @@
 package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -12,10 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+/**menu para a criação de novos cadastros*/
 public class MenuCadastro extends AppCompatActivity implements View.OnClickListener{
 
     private Button BTCancela;
@@ -136,5 +135,5 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
+    }      //Confirma o cadastro e salva no servidor
 }

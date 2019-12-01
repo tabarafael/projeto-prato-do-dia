@@ -9,7 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+
+/**Menu principal para clientes, semelhante ao MenuPrincipalADMIN, mas com opções limitadas*/
 
 public class MenuPrincipal extends AppCompatActivity implements View.OnClickListener {
 
@@ -35,10 +40,9 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         BTPedidos.setOnClickListener(this);
         BTAltCadastro.setOnClickListener(this);
 
-
+        ParseAddUniqueChannel();
         Intent intent = getIntent();
         ValorNivelContaUsuario = intent.getBooleanExtra("NivelConta",false);
-
     }
 
     @Override
@@ -100,4 +104,12 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, MenuAtCadastro.class);
         startActivity(intent);
     }       //Abre menu para o usuário alterar seus dados
+
+    private void ParseAddUniqueChannel(){
+        ArrayList<String> channels = new ArrayList<>();
+        channels.add(ParseUser.getCurrentUser().getUsername());
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("channels",channels);
+        installation.saveInBackground();
+    }      //Cria um canal único para o usuário utilizado no envio das notificações
 }

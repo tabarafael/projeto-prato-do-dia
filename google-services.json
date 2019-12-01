@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "211398102774",
+    "firebase_url": "https://projeto-prato-do-dia.firebaseio.com",
+    "project_id": "projeto-prato-do-dia",
+    "storage_bucket": "projeto-prato-do-dia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211398102774:android:aaabe3a7068b22792466d7",
+        "android_client_info": {
+          "package_name": "com.example.restaurantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211398102774-lpq9dvefoe5th4reqt459llmcfnqraj1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBma37CKJX5piO5MUYVa0fZ24omo0Qfju8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211398102774-lpq9dvefoe5th4reqt459llmcfnqraj1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,13 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+/** activity para exibição dos daddos do prato selecionado pelo usuário*/
 
 public class PratoDescricao extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,6 +56,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
 
 
     }
+
     private void inserirDados(String pratoSelecionado){
         final ProgressDialog pd = new ProgressDialog(PratoDescricao.this);
         pd.setMessage(getString(R.string.TXLoading));
@@ -93,7 +95,7 @@ public class PratoDescricao extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-    }
+    } //Baixa os dados do servidor e insere nos espaços para exibição
 
     @Override
     public void onClick (View view){

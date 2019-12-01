@@ -6,18 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+/* o serviço deste array adapter é inflar uma lista com todos os dados do servidor de acordo com o que foi selecionado como filtro*/
 
 public class ArrayAdapterRelatorioCompleto extends ArrayAdapter<String> {
     private final Context context;
@@ -29,12 +27,11 @@ public class ArrayAdapterRelatorioCompleto extends ArrayAdapter<String> {
     }
 
     @Override
-
     public View getView (final int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_layout_relatorio_completo, parent, false);
-        final TextView textViewNome = (TextView) rowView.findViewById(R.id.TV_RowLabel_Nome);
+        final TextView textViewNome = rowView.findViewById(R.id.TV_RowLabel_Nome);
         final TextView dado1 = rowView.findViewById(R.id.TV_Dado1);
         final TextView dado2 = rowView.findViewById(R.id.TV_Dado2);
         final TextView dado3 = rowView.findViewById(R.id.TV_Dado3);

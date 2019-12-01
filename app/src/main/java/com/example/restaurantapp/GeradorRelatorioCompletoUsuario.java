@@ -1,20 +1,18 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DownloadManager;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 import java.util.List;
+
+/**Cria uma lista completa de pedidos de acordo com o usuário selecionado**/
+
 
 public class GeradorRelatorioCompletoUsuario extends ListActivity {
 
@@ -52,5 +50,5 @@ public class GeradorRelatorioCompletoUsuario extends ListActivity {
                 }
             }
         });
-    }
+    }  /**baixa todos os pedidos salvos no servidor e infla a lista com o array adapter**/
 }

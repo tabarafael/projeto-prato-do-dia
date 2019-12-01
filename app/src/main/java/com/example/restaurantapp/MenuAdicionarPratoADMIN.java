@@ -31,6 +31,8 @@ import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**Classe utilizada para criar novos pratos no servidor*/
+
 public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.OnClickListener{
     private EditText ETNome;
     private EditText ETIngredientes;
@@ -130,7 +132,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent.createChooser(intent,"Selecione uma Imagem"), SELECT_PHOTO);
 
-    }
+    }  /* Cria intent para devolver uri do endereço de imagem no dispositivo*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -145,7 +147,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
                     Toast.makeText(this,"IO throw",Toast.LENGTH_LONG).show();
                 }
         }
-    }
+    }  /*Com o uri result do AppAdicionarImagem, carrrega a imagem e carrega no ImageView*/
 
     public static Bitmap getThumbnail(Uri uri, Context context) throws IOException{
         InputStream input = context.getContentResolver().openInputStream(uri);
@@ -168,7 +170,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
         Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);
         input.close();
         return bitmap;
-    }
+    }  /*Transforma a imagem do dispositivo em bitmap*/
 
     private static int getPowerOfTwoForSampleRatio(double ratio){
         int k = Integer.highestOneBit((int)Math.floor(ratio));
@@ -184,7 +186,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
             hasImage = ((BitmapDrawable)drawable).getBitmap() != null;
         }
         return hasImage;
-    }
+    } /*Verifica se já foi carregada alguma imagem no ImageView*/
 
     private boolean AnyCheckBoxChecked(){
         boolean anyChecked = false;
@@ -210,7 +212,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
             anyChecked = true;
         }
         return anyChecked;
-    }
+    } /*Verifica se ao menos uma checkbox foi selecionada*/
 
     private void AppSalvarDados(Integer dia){
         final ProgressDialog pd = new ProgressDialog(MenuAdicionarPratoADMIN.this);
@@ -267,7 +269,7 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
                 }
             });
         }
-    }
+    }  /* Salva os dados no servidor*/
 
     public String getFileName(Uri uri){
         String result = null;
@@ -289,5 +291,5 @@ public class MenuAdicionarPratoADMIN extends AppCompatActivity implements View.O
             }
         }
         return result;
-    }
+    } /*Retorna o nome do arquivo de imagem para nomeá-lo corretamente antes de salvar*/
 }

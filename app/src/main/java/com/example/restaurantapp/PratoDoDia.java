@@ -16,6 +16,7 @@ import com.parse.ParseQuery;
 import java.util.Calendar;
 import java.util.List;
 
+/**Lista todos os pratos disponíveis para o dia corrente*/
 
 public class PratoDoDia extends ListActivity {
 
@@ -66,7 +67,7 @@ public class PratoDoDia extends ListActivity {
             startActivity(intent);
         }
 
-    }
+    }  //Manipula a seleção de um item da lista
 
     private void AppGetPratosInBackGround(int hoje){
 
@@ -96,7 +97,7 @@ public class PratoDoDia extends ListActivity {
             }
         });
 
-    }
+    }  //verifica quais pratos estão disponíveis para o dia, baixa suas imagens e informações básicas
 
     private void AppDiaSemana(int ValorSemana){
 
@@ -128,5 +129,5 @@ public class PratoDoDia extends ListActivity {
             default:
                 Toast.makeText(this,"default",Toast.LENGTH_SHORT).show();
         }     //Verifica "de onde o usuário vem", 1-7 é o mennu semanal, 8 é "dia atual". Atualmente apenas modifica o header, mas deve filtrar os pratos disponíveis nofuturo
-    }
+    } //verifica o dia da semana para atualizar o cabeçalho
 }
