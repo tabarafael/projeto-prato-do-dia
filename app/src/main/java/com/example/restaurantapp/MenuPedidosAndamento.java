@@ -13,7 +13,7 @@ public class MenuPedidosAndamento extends AppCompatActivity implements View.OnCl
     private Button BTAndamento;
     private Button BTConcluido;
     private Button BTCancelado;
-    private Boolean ValorNivelContaUsuario;
+    private boolean ValorNivelContaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

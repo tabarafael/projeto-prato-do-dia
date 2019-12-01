@@ -26,10 +26,10 @@ import java.util.List;
 
 public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClickListener{
 
-    Button BTConfirma;
-    EditText ETUsuario;
-    EditText ETSenha;
-    Spinner spinner;
+    private Button BTConfirma;
+    private EditText ETUsuario;
+    private EditText ETSenha;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +84,8 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                                 if (e==null){
                                                     pd.dismiss();
                                                     new  AlertDialog.Builder(MenuPermissaoADMIN.this)
-                                                            .setMessage("Permissão modificada com sucesso.")
-                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                            .setMessage(getResources().getString(R.string.TXModPrivilegio))
+                                                            .setPositiveButton(getResources().getString(R.string.TXOK), new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                                     AppLimpar();
@@ -116,8 +116,8 @@ public class MenuPermissaoADMIN extends AppCompatActivity implements View.OnClic
                                                 if (e==null){
                                                     pd.dismiss();
                                                     new  AlertDialog.Builder(MenuPermissaoADMIN.this)
-                                                            .setMessage("Permissão modificada com sucesso.")
-                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                            .setMessage(getResources().getString(R.string.TXModPrivilegio))
+                                                            .setPositiveButton(getResources().getString(R.string.TXOK), new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                                     AppLimpar();

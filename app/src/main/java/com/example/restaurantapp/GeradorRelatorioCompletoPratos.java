@@ -1,36 +1,28 @@
 package com.example.restaurantapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GeradorRelatorioCompletoPratos extends ListActivity {
 
-    private String pratoSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerador_relatorio_completo_pratos);
         Intent intent =getIntent();
-        pratoSelecionado = intent.getStringExtra("pratoSelecionado");
-        AppGetListaPratos();
+        String pratoSelecionado = intent.getStringExtra("pratoSelecionado");
+        AppGetListaPratos(pratoSelecionado);
     }
-    private void AppGetListaPratos(){
+    private void AppGetListaPratos(String pratoSelecionado){
         final ProgressDialog pd = new ProgressDialog(GeradorRelatorioCompletoPratos.this);
         pd.setMessage(getString(R.string.TXLoading));
         pd.setCancelable(false);

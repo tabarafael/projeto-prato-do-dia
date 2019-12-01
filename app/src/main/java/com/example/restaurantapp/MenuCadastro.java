@@ -136,5 +136,5 @@ public class MenuCadastro extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }     //Verifica os espaços e valida o usuário, ainda não funciona
+    }
 }

@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MenuRelatorioADMIN extends AppCompatActivity implements View.OnClickListener{
-    Button BTCliente;
-    Button BTPrato;
+    private Button BTCliente;
+    private Button BTPrato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,4 @@ public class MenuRelatorioADMIN extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(this,GeradorRelatorioPratos.class);
         startActivity(intent);
     }
-
-
 }
